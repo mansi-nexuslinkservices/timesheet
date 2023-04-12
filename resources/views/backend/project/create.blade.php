@@ -56,6 +56,7 @@
 								</div>	
 
 								<div class="row mb-4">
+									<label class="form-label font-w600 mb-4">Select User</label>
 									@foreach($employees as $e)
 										<div class="col-xl-2">
 											<div class="form-check custom-checkbox mb-3">
