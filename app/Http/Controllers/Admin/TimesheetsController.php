@@ -149,8 +149,9 @@ class TimesheetsController extends Controller
                         ->where('status',1)
                         ->orderBy('id','desc')
                         ->get();
-        $employees = User::with('roles')->whereNotIn('name',['admin'])->get();
         $user_id = auth()->user()->id;
+        $employees = User::with('roles')->whereNotIn('id',[$user_id])->whereNotIn('name',['admin'])->get();
+        
         $d = DB::table('user_project_managers')->where('user_id',$user_id)->pluck('project_manager_id');
         $user_project_managers = json_decode(json_encode($d), true);
 
@@ -314,7 +315,7 @@ class TimesheetsController extends Controller
         $m =DB::table('projectmanagers')->whereIn('id',$user_project_managers)->get()->toArray();
         $project_managers = json_decode(json_encode($m), true);
 
-        $employees = User::with('roles')->whereNotIn('name',['admin'])->get();
+        $employees = User::with('roles')->whereNotIn('id',[$user_id])->whereNotIn('name',['admin'])->get();
         return view('backend.timesheet.create', compact('val','project_managers','mainArray','employees','projects','timesheet','list_page','inner_page_module_name'));
     }
 
