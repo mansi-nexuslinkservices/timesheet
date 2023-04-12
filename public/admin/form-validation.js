@@ -189,6 +189,8 @@ $(document).ready(function(){
                 error.insertAfter('.userPassword');
             }else if(element.attr("name") == 'project_id[]') {
                 error.insertAfter('.userProjectType');
+            }else if(element.attr("name") == 'designation_id') {
+                error.insertAfter('.designationId');
             }else if(element.attr("name") == 'user_type_id') {
                 error.insertAfter('.userTypeId');
             }else if(element.attr("name") == 'joining_date') {
