@@ -200,11 +200,14 @@ class TimesheetsController extends Controller
         $userDetails = User::whereIn('email',$request->project_manager)->get();
         $projectName = Project::whereIn('id',$request->project_id)->pluck('name')->toArray();
 
+        $v = array();
         foreach($userDetails as $k => $d){
-            $managerName[$k] = array(
+            $v[$k] = array(
                 'managerName' => $d['name']
             );
         }
+        $managerName = $v;
+
         $userDetails = array(
             'submitted_date' =>  $submitted_date,
             'employeeName' => auth()->user()->name,
