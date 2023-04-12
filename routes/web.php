@@ -10,7 +10,6 @@ use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\TimesheetsController;
 use App\Http\Controllers\Admin\UserController;
-use App\Http\Controllers\Admin\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,9 +60,5 @@ Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => ['auth']], fu
     /* Timesheet Module */
     Route::resource('timesheets', TimesheetsController::class);
     Route::get('getTimesheet', [TimesheetsController::class,'getTimesheet'])->name('getTimesheet');
-
-    /* Language Module */
-    Route::resource('languages', LanguageController::class);
-    Route::get('getLanguage', [LanguageController::class,'getLanguage'])->name('getLanguage');
 
 });

@@ -12,6 +12,58 @@
 	.meridian{
 		display: none;
 	}
+	.timepicker_wrap{
+		width: 185px !important;
+	}
+	.prev{
+		   border:1px solid transparent;
+    width: 100%;
+    display: inline-block;
+    padding: 0px 0px 28px 0;
+    color: #333;
+	}
+	.next{
+		   border:1px solid transparent;
+    width: 100%;
+    display: inline-block;
+    padding: 33px 0 0px 0px;
+    color: #333;
+	}
+	.prev:hover, .next:hover{
+text-decoration: none;
+    background-color: #eee;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border-color: #ddd;
+	}
+	.ti_tx, .mi_tx, .mer_tx {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    font-size: 14px;
+    padding: 6px 12px;
+    width: 100%;
+    height: 34px;
+    font-weight: 600;
+}
+.time{
+	position: relative;
+}
+.time:after{
+	content: ':';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 67px;
+    /* right: 0; */
+    transform: translateY(-50%);
+    margin: auto;
+    display: block;
+}
 </style>
 @endsection
 
