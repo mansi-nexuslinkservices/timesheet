@@ -39,12 +39,6 @@
 											</span>
 										</p>
 
-										<p class="font-w600 mb-3">
-											<span class="custom-label">Project Name :</span>
-											<span class="font-w400">
-												{{$mprojects ?? ''}}
-											</span>
-										</p>
 
 										<p class="font-w600 mb-3">
 											<span class="custom-label">Designation :</span>
