@@ -59,7 +59,8 @@
 									@foreach($employees as $e)
 										<div class="col-xl-2">
 											<div class="form-check custom-checkbox mb-3">
-												<input type="checkbox" class="form-check-input" id="customCheckBox{{$e['id']}}" name="user_id[]" required="" value="{{$e['id']}}" {{in_array($e['id'],$multiple_users) ? 'checked' : ''}}>
+												<input type="checkbox" class="form-check-input" id="customCheckBox{{$e['id']}}" name="user_id[]" required="" value="{{$e['id']}}" @if(isset($multiple_users) && !empty($multiple_users))
+												{{in_array($e['id'],$multiple_users) ? "checked" : ''}} @endif>
 												<label class="form-check-label" for="customCheckBox{{$e['id']}}">{{$e['name']}}</label>
 											</div>
 										</div>
