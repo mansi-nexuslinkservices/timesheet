@@ -145,6 +145,9 @@ $(document).ready(function(){
             designation_id: {
                 required: true
             },
+            employee_code: {
+                required: true
+            },
             'project_id[]':{
                 required: true
             },
@@ -167,6 +170,9 @@ $(document).ready(function(){
             },
             designation_id: {
                 required: "Please select designation",
+            },
+            employee_code: {
+                required: "Please enter employee code",
             },
             'project_id[]': {
                 required: "Please select project type",
@@ -193,6 +199,8 @@ $(document).ready(function(){
                 error.insertAfter('.designationId');
             }else if(element.attr("name") == 'user_type_id') {
                 error.insertAfter('.userTypeId');
+            }else if(element.attr("name") == 'employee_code') {
+                error.insertAfter('.empCode');
             }else if(element.attr("name") == 'joining_date') {
                 error.insertAfter('.joiningDate');
             }else{
