@@ -70,12 +70,13 @@ class TimesheetsController extends Controller
             $order = $columns[$request->input('order.0.column')];
             $dir = $request->input('order.0.dir');
 
-            if(isset($roleName) && !empty($roleName == 'admin')){
+            if(isset($roleName) && $roleName == 'admin'){
                 $query = Timesheet::whereNull('deleted_at')->offset($start)
                     ->limit($limit)
                     ->orderby('id','desc');
 
                 $totalFiltered = Timesheet::whereNull('deleted_at')->count();
+
             }else{
                 $query = Timesheet::whereNull('deleted_at')->where('user_id',$user)->offset($start)
                     ->limit($limit)
@@ -87,13 +88,25 @@ class TimesheetsController extends Controller
 
             if($request->user != null){
                 $query->where('user_id',$request->user);
-                $totalFiltered = Timesheet::whereNull('deleted_at')->whereYear('user_id',$request->user)->count();
+                if(isset($roleName) && $roleName == 'admin'){
+                    $totalFiltered = Timesheet::whereNull('deleted_at')->count();
+                }else{
+                    $totalFiltered = Timesheet::whereNull('deleted_at')->whereYear('user_id',$request->user)->count();
+                }
             }if($request->month != null){
                 $query->whereMonth('submitted_date',$request->month);
-                $totalFiltered = Timesheet::whereNull('deleted_at')->where('user_id',$user)->whereMonth('submitted_date',$request->month)->count();
+                if(isset($roleName) && $roleName == 'admin'){
+                    $totalFiltered = Timesheet::whereNull('deleted_at')->whereMonth('submitted_date',$request->month)->count();
+                }else{
+                    $totalFiltered = Timesheet::whereNull('deleted_at')->where('user_id',$user)->whereMonth('submitted_date',$request->month)->count();
+                }
             }if($request->year != null){
                 $query->whereYear('submitted_date',$request->year);
-                $totalFiltered = Timesheet::whereNull('deleted_at')->where('user_id',$user)->whereYear('submitted_date',$request->year)->count();
+                if(isset($roleName) && $roleName == 'admin'){
+                    $totalFiltered = Timesheet::whereNull('deleted_at')->whereYear('submitted_date',$request->year)->count();
+                }else{
+                    $totalFiltered = Timesheet::whereNull('deleted_at')->where('user_id',$user)->whereYear('submitted_date',$request->year)->count();
+                }
             }
         
             $records = $query->get();
