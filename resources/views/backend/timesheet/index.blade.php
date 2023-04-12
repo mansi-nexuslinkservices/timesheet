@@ -24,7 +24,7 @@
 				</div>
 
 				<div class="row">
-					@if(isset($role->roles->name) && $role->roles->name == 'admin')
+					@if(isset($role->roles[0]['name']) && $role->roles[0]['name'] == 'admin')
 						<div class="col-xl-3 mb-4">
 							<select class="form-control default-select" name="user" id="user">
 								<option value="">Select Employee</option>
