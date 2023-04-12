@@ -15,13 +15,13 @@ class TeamleaderSeeder extends Seeder
     {
         $data = array(
             [
-                'name' => "Rinkal",
-                'email' => "rinkal.k@nexuslinkservices.in",
+                'name' => "vishal",
+                'email' => "vishal.pethani@nexuslinkservices.in",
                 'created_at' => date('Y-m-d H:i:s'),
             ],
             [
-                'name' => "Ankit",
-                'email' => "ankit@nexuslinkservices.in",
+                'name' => "Mansi",
+                'email' => "mansi.panchal@nexuslinkservices.in",
                 'created_at' => date('Y-m-d H:i:s'),
             ]
         );
