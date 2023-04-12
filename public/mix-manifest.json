@@ -1,0 +1,9 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/backend/js/bootstrap.js": "/backend/js/bootstrap.js",
+    "/css/app.css": "/css/app.css",
+    "/backend/css/toastr.min.css": "/backend/css/toastr.min.css",
+    "/backend/css/sweetalert2.min.css": "/backend/css/sweetalert2.min.css",
+    "/backend/css/select2.min.css": "/backend/css/select2.min.css",
+    "/backend/css/jquery.dataTables.min.css": "/backend/css/jquery.dataTables.min.css"
+}

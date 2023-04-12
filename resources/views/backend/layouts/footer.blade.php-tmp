@@ -1,0 +1,11 @@
+
+Fatal error: Uncaught Error: Call to undefined function each() in C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php on line 54
+
+Error: Call to undefined function each() in C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php on line 54
+
+Call Stack:
+    0.0019     794568   1. {main}() C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:0
+    0.0022     805408   2. CodeFormatter->formatCode($source = '<div class="footer">\r\n    <div class="copyright">\r\n        <p>Copyright © Designed &amp; Developed by <a href="{{route(\'admin.home\')}}" target="_blank">DexignLab</a> 2023</p>\r\n    </div>\r\n</div>') C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:1736
+    0.0022     805632   3. AddMissingCurlyBraces->format($source = '<div class="footer">\r\n    <div class="copyright">\r\n        <p>Copyright © Designed &amp; Developed by <a href="{{route(\'admin.home\')}}" target="_blank">DexignLab</a> 2023</p>\r\n    </div>\r\n</div>') C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:326
+    0.0022     805632   4. AddMissingCurlyBraces->addBraces($source = '<div class="footer">\r\n    <div class="copyright">\r\n        <p>Copyright © Designed &amp; Developed by <a href="{{route(\'admin.home\')}}" target="_blank">DexignLab</a> 2023</p>\r\n    </div>\r\n</div>') C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:41
+

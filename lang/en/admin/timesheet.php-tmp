@@ -1,0 +1,11 @@
+
+Fatal error: Uncaught Error: Call to undefined function each() in C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php on line 54
+
+Error: Call to undefined function each() in C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php on line 54
+
+Call Stack:
+    0.0020     794480   1. {main}() C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:0
+    0.0023     805224   2. CodeFormatter->formatCode($source = '<?php\r\n\r\nreturn [\r\n    \'module_name\' => \'Timesheets\',\r\n    \'inner_page_module_name\' => \'Timesheet\'\r\n];') C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:1736
+    0.0023     805384   3. AddMissingCurlyBraces->format($source = '<?php\r\n\r\nreturn [\r\n    \'module_name\' => \'Timesheets\',\r\n    \'inner_page_module_name\' => \'Timesheet\'\r\n];') C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:326
+    0.0023     805384   4. AddMissingCurlyBraces->addBraces($source = '<?php\r\n\r\nreturn [\r\n    \'module_name\' => \'Timesheets\',\r\n    \'inner_page_module_name\' => \'Timesheet\'\r\n];') C:\Users\pvora\AppData\Roaming\Sublime Text\Packages\PHPTools\php.tools\codeFormatter.php:41
+
