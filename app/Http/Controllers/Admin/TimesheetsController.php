@@ -322,7 +322,7 @@ class TimesheetsController extends Controller
             $mainArray = array_replace_recursive($offerArray1,$offerArray2,$offerArray3,$offerArray4);
         }
         $user_id = auth()->user()->id;
-        $d = DB::table('user_project_managers')->where('user_id',$user_id)->pluck('project_manager_id');
+        $d = DB::table('user_project_managers')->where('user_id',$timesheet['user_id'])->pluck('project_manager_id');
         $user_project_managers = json_decode(json_encode($d), true);
 
         $m =DB::table('projectmanagers')->whereIn('id',$user_project_managers)->get()->toArray();
