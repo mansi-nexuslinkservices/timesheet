@@ -26,11 +26,11 @@
                                     </a>
                                 </div>
                                 <h4 class="text-center mb-4">Sign in your account</h4>
-                                <form method="POST" action="{{ route('login') }}">
+                                <form method="POST" action="{{ route('login') }}" id="loginForm">
                                     @csrf
                                     <div class="mb-3">
                                         <label class="mb-1"><strong>Email</strong></label>
-                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
 
                                         @error('email')
                                             <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-1"><strong>Password</strong></label>
-                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="current-password">
 
                                         @error('password')
                                             <span class="invalid-feedback" role="alert">
@@ -74,3 +74,40 @@
     </div>
 </div>
 @endsection
+{{-- @section('js')
+<script>
+    $('#loginForm').validate({
+        ignore: [],
+        rules: {
+            email: {
+                required: true
+            },
+            password: {
+                required: true
+            },
+        },
+        messages: {
+            email: {
+                required: "Please enter email",
+            },
+            password: {
+                required: "Please enter password",
+            },
+        },
+        onfocusout: function (element) {
+            jQuery(element).valid()
+        },
+        errorElement: "div",
+        errorClass: "validateError",
+        errorPlacement: function (error, element) {
+            if(element.attr("name") == 'email') {
+                error.insertAfter('.email');
+            } else if(element.attr("name") == 'password'){
+                error.insertAfter('.password');
+            }else {
+                error.insertAfter(element);
+            }
+        },
+    });
+</script>
+@endsection --}}
