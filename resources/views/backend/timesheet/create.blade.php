@@ -9,38 +9,53 @@
 <link href="{{ asset('admin/clockpicker/css/bootstrap-clockpicker.min.css') }}" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://www.jqueryscript.net/demo/Minimal-jQuery-Time-Picker-Plugin-with-jQuery-TimePicki/css/timepicki.css">
 <style>
-	.meridian{
-		display: none;
-	}
-	.timepicker_wrap{
-		width: 185px !important;
-	}
-	.prev{
-		   border:1px solid transparent;
+	.timepicker_wrap {
+    padding: 5px 0;
+    border-radius: 5px;
+    z-index: 2;
+    display: none;
+    width: 240px;
+    box-shadow: none;
+    background: #fff;
+    border: 1px solid #efeded;
+    float: left;
+    position: absolute;
+    top: 27px;
+    left: 0px;
+    width: 180px !important;
+}
+.arrow_top {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: url(../images/top_arr.png) no-repeat;
+    width: 18px;
+    height: 10px;
+    z-index: 3;
+    opacity: .3;
+}
+.time, .mins, .meridian {
+    width: 69px;
+    float: left;
+    margin: 0px
+px
+ 10px;
+    font-size: 20px;
+    color: #2d2e2e;
+    font-family: 'arial';
+    font-weight: 700;
+}
+.prev {
+    border: 1px solid transparent;
     width: 100%;
     display: inline-block;
-    padding: 0px 0px 28px 0;
+    padding: 8px 0px 26px 0;
     color: #333;
-	}
-	.next{
-		   border:1px solid transparent;
-    width: 100%;
-    display: inline-block;
-    padding: 33px 0 0px 0px;
-    color: #333;
-	}
-	.prev:hover, .next:hover{
-text-decoration: none;
-    background-color: #eee;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    border-color: #ddd;
-	}
-	.ti_tx, .mi_tx, .mer_tx {
+}
+.ti_tx, .mi_tx, .mer_tx {
     width: 100%;
     text-align: center;
-    margin: 10px 0;
+    margin: 0px 0;
     border: 1px solid #ccc;
     border-radius: 4px;
     color: #555;
@@ -50,19 +65,37 @@ text-decoration: none;
     height: 34px;
     font-weight: 600;
 }
-.time{
-	position: relative;
+.next {
+    border: 1px solid transparent;
+    width: 100%;
+    display: inline-block;
+    padding: 36px 0 0px 0px;
+    color: #333;
+    margin-top: 5px;
 }
-.time:after{
-	content: ':';
+.time:after {
+        content: ':';
     display: block;
     position: absolute;
-    top: 50%;
-    left: 67px;
-    /* right: 0; */
-    transform: translateY(-50%);
+    top: 75%;
+    left: 136px;
+    right: 0;
+    transform: translate(-50px, -50px);
     margin: auto;
     display: block;
+    font-size: 16px;
+}
+.time, .mins, .meridian {
+    width: 69px;
+    float: left;
+    margin: 0px 10px;
+    font-size: 20px;
+    color: #2d2e2e;
+    font-family: 'arial';
+    font-weight: 700;
+}
+.meridian {
+    display: none;
 }
 </style>
 @endsection
@@ -171,17 +204,15 @@ text-decoration: none;
 														<option value="01:20">1:20</option>
 														<option value="02:45">1:45</option>
 													</select> --}}
-													<input type="text" class="form-control txthour bs-timepicker" name="hours[]" value="">
+													<input type="text" class="form-control txthour bs-timepicker" name="hours[]" value="" autocomplete="off">
 												</td>
 												<td>
 													<input type="button" class="btn btn-primary btn-sm tr_clone_add" value="+">
 												</td>
 											</tr>
-
-											@endif
+										@endif
 									</tbody>
 								</table>
-
 								<div class="row">
 									<div class="col-sm-3 mb-4">
 										<label class="form-label font-w600">Email to : </label>
@@ -230,7 +261,11 @@ text-decoration: none;
 <script>
 	
 	$(document).ready(function(){
-		$(".bs-timepicker").timepicki();
+		$(".bs-timepicker").timepicki({
+			timeFormat: 'HH:mm',
+			step:60,
+			interval: 60,
+		});
 		$(".select2-with-label-multiple").select2({
 		    placeholder: "Select Users",
 		});
@@ -262,6 +297,9 @@ text-decoration: none;
 		}
 
 		totalHours = 0;
+		$(".timesheet-tbl").on('click','.time_pick .prev', function(){
+			let value = $('.ti_tx').text();
+		});
 		$(".timesheet-tbl").on('input','.txthour', function() {
 	    	let value = $(this).val();
 	    	if (moment(value, "HH:mm").isValid()) {

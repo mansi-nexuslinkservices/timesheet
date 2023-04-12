@@ -29,17 +29,51 @@ class UserController extends Controller
      */
     public function index()
     {
+        $list_page = trans('admin/common.list');
         $module_name = $this->module_name;
-        $admin_user = User::where('super_admin',1)->first();
-        return view('backend.user.index',compact('admin_user','module_name'));
+        return view('backend.user.index',compact('module_name','list_page'));
     }
 
+     public function getUser(Request $request){
+        if ($request->ajax()) {
+            $records = User::whereNull('deleted_at')->where('super_admin',1)->orderby('id','desc')->get();
+            $data_arr = array();
+            foreach ($records as $record) {
+                $id = $record->id;
+                $name = $record->name;
+                $email = $record->email;
+                $created_at = $record->created_at;
+
+                /*if ($record->status == 1) {
+                    $status = "<span class='badge badge-success badge-lg light'>Active</span>";
+                }
+                if ($record->status == 0) {
+                    $status = "<span class='badge badge-danger badge-lg light'>In Active</span>";
+                }*/
+                $created_at = date("m/d/Y H:i A", strtotime($record->created_at));
+
+                // end
+                $data_arr[] = array(
+                    "id" => $id,
+                    "name" => $name,
+                    "email" => $email,
+                    "created_at" => $created_at,
+                );
+            }
+            $response = array(
+                "aaData" => $data_arr,
+            );
+            return response()->json($response);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        $list_page = trans('admin/common.add');
+        $inner_page_module_name = $this->inner_page_module_name;
+        return view('backend.user.create',compact('inner_page_module_name','list_page'));
     }
 
     /**
@@ -60,7 +94,9 @@ class UserController extends Controller
             'super_admin' => 1
         ); 
 
-        $user = User::create($data);
+        $admin_user = User::create($data);
+        $admin_user->assignRole('admin');
+
         return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
     }
 
@@ -69,7 +105,10 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $list_page = trans('admin/common.view');
+        $inner_page_module_name = $this->inner_page_module_name;
+        $admin_user = User::find($id);
+        return view('backend.user.view', compact('admin_user','list_page','inner_page_module_name'));
     }
 
     /**
@@ -77,7 +116,10 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-
+        $list_page = trans('admin/common.edit');
+        $inner_page_module_name = $this->inner_page_module_name;
+        $admin_user = User::find($id);
+        return view('backend.user.create', compact('admin_user','list_page','inner_page_module_name'));
     }
 
     /**
@@ -98,8 +140,8 @@ class UserController extends Controller
             'super_admin' => 1
         );    
 
-        $user = User::find($id);
-        $user->update($data);
+        $admin_user = User::find($id);
+        $admin_user->update($data);
 
         return redirect()->route('admin.users.index')->with('success', 'User updated successfully !');
     }
@@ -109,6 +151,13 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id)->delete();
+        if ($user == true) {
+            return response()->json([
+                'success' => true,
+                'message' => 'User deleted successfully!',
+            ]);
+        }
+        return redirect()->route('admin.users.index')->with('success', 'User deleted successfully!');
     }
 }

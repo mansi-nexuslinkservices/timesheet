@@ -45,9 +45,11 @@ Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => ['auth']], fu
     Route::resource('projects', ProjectsController::class);
     Route::get('getProject', [ProjectsController::class,'getProject'])->name('getProject');
 
-    /* User Master */
-    Route::resource('users', UserController::class);
-    Route::get('getUser', [UserController::class,'getUser'])->name('getUser');
+    Route::group(['middleware' => ['role:admin']], function () {
+        /* User Master */
+        Route::resource('users', UserController::class);
+        Route::get('getUser', [UserController::class,'getUser'])->name('getUser');
+    });
 
     /* UserType Master */
     Route::resource('employee-types', EmployeeTypesController::class);

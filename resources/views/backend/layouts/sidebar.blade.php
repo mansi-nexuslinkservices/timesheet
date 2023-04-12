@@ -43,7 +43,10 @@
 						<i class="flaticon-013-checkmark"></i><span class="nav-text">User Management</span>
 						</a>
                         <ul aria-expanded="false">
-                        	<li class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}" href="{{route('admin.users.index')}}">Admin Users</a></li>
+                        	@if(isset($user) && !empty($user) && $user->super_admin == 1)
+                        		<li class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}" href="{{route('admin.users.index')}}">Admin Users</a></li>
+                        	@endif
+
 							<li class="{{ request()->routeIs('admin.employees*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.employees*') ? 'mm-active' : ''}}" href="{{route('admin.employees.index')}}">Employees</a></li>
 							<li class="{{ request()->routeIs('admin.employee-types*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.employee-types*') ? 'mm-active' : ''}}" href="{{route('admin.employee-types.index')}}">Employee Types</a></li>
 							<li class="{{ request()->routeIs('admin.designation*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.designation*') ? 'mm-active' : ''}}" href="{{route('admin.designation.index')}}">Designations</a></li>	
