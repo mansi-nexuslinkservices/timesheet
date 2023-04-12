@@ -23,14 +23,14 @@
 										<p class="font-w600 mb-3">
 											<span class="custom-label">Name :</span>
 											<span class="font-w400">
-												{{$user['name'] ?? ''}}
+												{{$admin_user['name'] ?? ''}}
 											</span>
 										</p>
 
 										<p class="font-w600 mb-3">
 											<span class="custom-label">Email :</span>
 											<span class="font-w400">
-												{{$user['email'] ?? ''}}
+												{{$admin_user['email'] ?? ''}}
 											</span>
 										</p>
 
