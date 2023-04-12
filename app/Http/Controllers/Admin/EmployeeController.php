@@ -233,7 +233,7 @@ class EmployeeController extends Controller
         $request->validate([
             'username' => 'required|unique:users,username,' . $id . ',id,deleted_at,NULL',
             'user_type_id' => 'required',
-            'project_id' => 'required',
+            //'project_id' => 'required',
             'designation_id' => 'required',
             'joining_date' => 'required',
             'email' => 'required|unique:users,email,'.$id.',id,deleted_at,NULL',

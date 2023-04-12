@@ -148,9 +148,9 @@ $(document).ready(function(){
             employee_code: {
                 required: true
             },
-            'project_id[]':{
+            /*'project_id[]':{
                 required: true
-            },
+            },*/
             joining_date: {
                 required: true
             },
@@ -174,9 +174,9 @@ $(document).ready(function(){
             employee_code: {
                 required: "Please enter employee code",
             },
-            'project_id[]': {
+            /*'project_id[]': {
                 required: "Please select project type",
-            },
+            },*/
             joining_date: {
                 required: "Please select date"
             },
@@ -193,9 +193,9 @@ $(document).ready(function(){
                 error.insertAfter('.userEmail');
             }else if(element.attr("name") == 'password') {
                 error.insertAfter('.userPassword');
-            }else if(element.attr("name") == 'project_id[]') {
+            }/*else if(element.attr("name") == 'project_id[]') {
                 error.insertAfter('.userProjectType');
-            }else if(element.attr("name") == 'designation_id') {
+            }*/else if(element.attr("name") == 'designation_id') {
                 error.insertAfter('.designationId');
             }else if(element.attr("name") == 'user_type_id') {
                 error.insertAfter('.userTypeId');
