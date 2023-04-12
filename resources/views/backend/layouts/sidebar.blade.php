@@ -7,7 +7,7 @@
 							<div class="d-flex align-items-center sidebar-info">
 								<div>
 									<span class="font-w400 d-block">{{$user['name'].' ' ?? ''}}{{ $user['surname'] ?? ''}}</span>
-									<small class="text-end font-w400">{{$designation->designation->name ?? ''}}</small>
+									<small class="text-end font-w400">{{$user_designation->designation->name ?? ''}}</small>
 								</div>	
 								<i class="fas fa-chevron-down"></i>
 							</div>
