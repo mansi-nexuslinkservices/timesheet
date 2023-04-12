@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             $user = Auth::user();
             if(isset($user) && !empty($user)){
                 $user_designation = User::with('designation')->find($user->id);
-                $view->with('designation', $designation); 
+                $view->with('user_designation', $user_designation); 
             }
             $view->with('user', $user);
               
