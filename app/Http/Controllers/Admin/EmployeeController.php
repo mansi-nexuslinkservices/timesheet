@@ -43,7 +43,10 @@ class EmployeeController extends Controller
 
     public function getEmployee(Request $request){
         if ($request->ajax()) {
-            $records = User::whereNull('deleted_at')->where('super_admin',null)->orderby('id','desc')->get();
+            $records = User::with('roles')->whereHas('roles', function($q) {
+                $q->whereIn('name', ['project manager','team leader','employee']);
+            })->get();
+            /*$records = User::whereNull('deleted_at')->where('super_admin',null)->orderby('id','desc')->get();*/
             $userProjects = UserProject::all();
             $data_arr = array();
             foreach ($records as $record) {

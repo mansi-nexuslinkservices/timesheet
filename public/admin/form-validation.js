@@ -23,8 +23,10 @@ $(document).ready(function(){
                 required: true
             },
             password: {
-                depends: function (element) {
-                    if(urlSegment === "create") { return true }
+                required: {
+                    depends: function (element) {
+                        if(urlSegment === "create") { return true }
+                    },
                 }
             },
         },
