@@ -47,15 +47,15 @@
 									<div class="col-lg-7 col-md-7">
 										<div class="col-xl-12 mb-4">
 										  	<label  class="form-label font-w600">Junior  €</label>
-											<input type="text" name="junior" class="form-control w-auto d-inline-block" value="{{$rateCard->junior ?? ''}}">
+											<input type="text" name="junior" class="form-control w-auto d-inline-block junior" value="{{$rateCard->junior ?? ''}}">
 										</div>
 										<div class="col-xl-12 mb-4">
 										  	<label  class="form-label font-w600">Medior  €</label>
-											<input type="text" name="medior" class="form-control w-auto d-inline-block" value="{{$rateCard->medior ?? ''}}">
+											<input type="text" name="medior" class="form-control w-auto d-inline-block medior" value="{{$rateCard->medior ?? ''}}">
 										</div>
 										<div class="col-xl-12 mb-4">
 										  	<label  class="form-label font-w600">Senior  €</label>
-											<input type="text" name="senior" class="form-control w-auto d-inline-block" value="{{$rateCard->senior ?? ''}}">
+											<input type="text" name="senior" class="form-control w-auto d-inline-block senior" value="{{$rateCard->senior ?? ''}}">
 										</div>
 									</div>
 								</div>
@@ -72,4 +72,11 @@
 			</div>
         </div>
     </div>
+@endsection
+@section('js')
+<script>
+	$(".junior, .medior, .senior").keypress(function (e) {
+    	if (String.fromCharCode(e.keyCode).match(/[^0-9]/g)) return false;
+	});
+</script>
 @endsection
