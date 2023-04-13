@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\TimesheetsController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RateCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +64,7 @@ Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => ['auth']], fu
     Route::resource('timesheets', TimesheetsController::class);
     Route::get('getTimesheet', [TimesheetsController::class,'getTimesheet'])->name('getTimesheet');
 
+    /* Timesheet Module */
+    Route::resource('rate-cards', RateCardController::class);
+    Route::get('getRateCard', [RateCardController::class,'getRateCard'])->name('getRateCard');
 });
