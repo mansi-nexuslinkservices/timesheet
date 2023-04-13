@@ -44,7 +44,7 @@
 						</a>
                         <ul aria-expanded="false">
                         	@if(isset($user) && !empty($user) && $user->super_admin == 1)
-                        		<li class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}" href="{{route('admin.users.index')}}">Users</a></li>
+                        		<li class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.users*') ? 'mm-active' : ''}}" href="{{route('admin.users.index')}}">Admin Users</a></li>
                         	@endif
 
 							<li class="{{ request()->routeIs('admin.employees*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.employees*') ? 'mm-active' : ''}}" href="{{route('admin.employees.index')}}">Employees</a></li>

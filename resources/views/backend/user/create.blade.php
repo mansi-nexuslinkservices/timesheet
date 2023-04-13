@@ -17,14 +17,12 @@
 				<div class="col-xl-6">
 					<div class="card">
 						@if(isset($admin_user) && !empty($admin_user))
-							<form method="POST" action="{{ route('admin.users.update',$admin_user->id) }}" enctype="multipart/form-data">
+							<form method="POST" action="{{ route('admin.users.update',$admin_user->id) }}" enctype="multipart/form-data" id="adminForm">
 
 							@csrf
 							@method('PATCH')
-
 						@else
-							<form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data" >
-
+							<form method="POST" action="{{ route('admin.users.store') }}" enctype="multipart/form-data" id="adminForm">
 							@csrf
 						@endif
 							
@@ -33,23 +31,23 @@
 									<div class="col-md-12 mb-4">
 									  <label class="form-label font-w600">name<span class="text-danger scale5 ms-2">*</span></label>
 										<input type="text" class="form-control Name" name="name" placeholder="Enter Name" value="{{ old('name',$admin_user['name'] ?? '') }}">
-										@error('name')
+										{{-- @error('name')
     										<div class="error">{{ $message }}</div>
-										@enderror
+										@enderror --}}
 									</div>
 									<div class="col-md-12 mb-4">
 									  	<label class="form-label font-w600">email<span class="text-danger scale5 ms-2">*</span></label>
 										<input type="email" class="form-control Email" name="email" placeholder="Enter Email" value="{{ old('email',$admin_user['email'] ?? '') }}">
-										@error('surname')
+										{{-- @error('surname')
     										<div class="error">{{ $message }}</div>
-										@enderror
+										@enderror --}}
 									</div>
 									<div class="col-md-12 mb-4">
 									  	<label class="form-label font-w600">Password<span class="text-danger scale5 ms-2">*</span></label>
 										<input type="password" class="form-control password" name="password" placeholder="Enter Password" value="{{ old('password',$admin_user['password'] ?? '') }}">
-										@error('surname')
+										{{-- @error('surname')
     										<div class="error">{{ $message }}</div>
-										@enderror
+										@enderror --}}
 									</div>
 								</div>
 							</div>

@@ -13,6 +13,39 @@ $(document).ready(function(){
         return $(element).val().length > 0;
     }, "This field is required");
 
+    $('#adminForm').validate({
+        ignore: [],
+        rules: {
+            name: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+            password: {
+                required: true
+            },
+        },
+        messages: {
+            name: {
+                required: "Please enter name",
+            },
+            email: {
+                required: "Please enter email",
+            },
+            password: {
+                required: "Please enter password",
+            },
+        },
+        onfocusout: function (element) {
+            jQuery(element).valid()
+        },
+        errorElement: "div",
+        errorClass: "validateError",
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
+        },
+    });
 
 	$('#userType').validate({
         ignore: [],

@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'module_name' => 'Users',
-    'inner_page_module_name' => 'User'
+    'module_name' => 'Admin Users',
+    'inner_page_module_name' => 'Admin User'
 ];

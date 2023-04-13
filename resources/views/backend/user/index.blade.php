@@ -11,7 +11,7 @@
 				<div class="d-flex align-items-center mb-4 flex-wrap">
 					<h4 class="fs-20 font-w600  me-auto">{{$module_name.' '.$list_page}}</h4>
 					<div>
-						<a href="{{route('admin.users.create')}}" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add New User</a>
+						<a href="{{route('admin.users.create')}}" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add New Admin User</a>
 					</div>
 				</div>
 				<div class="row">

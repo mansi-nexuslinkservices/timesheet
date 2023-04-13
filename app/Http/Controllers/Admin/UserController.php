@@ -36,7 +36,7 @@ class UserController extends Controller
 
      public function getUser(Request $request){
         if ($request->ajax()) {
-            $records = User::whereNull('deleted_at')->where('super_admin',1)->orderby('id','desc')->get();
+            $records = User::role('admin-user')->get();
             $data_arr = array();
             foreach ($records as $record) {
                 $id = $record->id;
@@ -44,12 +44,6 @@ class UserController extends Controller
                 $email = $record->email;
                 $created_at = $record->created_at;
 
-                /*if ($record->status == 1) {
-                    $status = "<span class='badge badge-success badge-lg light'>Active</span>";
-                }
-                if ($record->status == 0) {
-                    $status = "<span class='badge badge-danger badge-lg light'>In Active</span>";
-                }*/
                 $created_at = date("m/d/Y H:i A", strtotime($record->created_at));
 
                 // end
@@ -91,11 +85,10 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'super_admin' => 1
         ); 
 
         $admin_user = User::create($data);
-        $admin_user->assignRole('admin');
+        $admin_user->assignRole('admin-user');
 
         return redirect()->route('admin.users.index')->with('success', 'User created successfully!');
     }
@@ -137,7 +130,7 @@ class UserController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'super_admin' => 1
+            //'super_admin' => 1
         );    
 
         $admin_user = User::find($id);

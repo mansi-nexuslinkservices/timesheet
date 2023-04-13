@@ -22,6 +22,8 @@ class UserSeeder extends Seeder
         $role2 = Role::create(['name' => 'project manager']);
         $role3 = Role::create(['name' => 'team leader']);
         $role4 = Role::create(['name' => 'employee']);
+        $role5 = Role::create(['name' => 'admin-user']);
+
 
         $user = User::create([
             'name' => "Admin",
