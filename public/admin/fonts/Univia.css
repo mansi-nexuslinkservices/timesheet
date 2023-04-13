@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./univiaPro-Regular.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 100;
+    src: url(./univiaPro-Thin.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 200;
+    src: url(./univiaPro-UltraLight.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 300;
+    src: url(./univiaPro-Light.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 350;
+    src: url(./univiaPro-Book.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./univiaPro-Medium.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 700;
+    src: url(./univiaPro-Bold.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 800;
+    src: url(./univiaPro-Black.otf) format('opentype')
+}
+
+@font-face {
+    font-family: 'univiaPro';
+    font-style: normal;
+    font-weight: 900;
+    src: url(./univiaPro-Ultra.otf) format('opentype')
+}

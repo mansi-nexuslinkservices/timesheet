@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+<style>
+    .auth-form img.brand-title {
+    width: 160px;
+}
+.auth-form svg.logo-abbr {
+    width: 35px;
+    margin-right: 5px;
+}
+</style>
 <div class="authincation h-100">
     <div class="container h-100">
         <div class="row justify-content-center h-100 align-items-center">

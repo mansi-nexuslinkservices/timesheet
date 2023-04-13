@@ -1,94 +1,154 @@
-.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
     border-color: #0c2340 !important;
     background-color: #0c2340 !important;
 }
-.plus-icon a{
-	background: #0c2340;
+
+.plus-icon a {
+    background: #0c2340;
 }
+
 a:hover {
-	color: #0c2340;
+    color: #0c2340;
 }
-.header-left .plus-icon a:hover{
-	color: #fff;
+
+.header-left .plus-icon a:hover {
+    color: #fff;
 }
-.btn-secondary{
-	border-color: #0085ca !important;
+
+.btn-secondary {
+    border-color: #0085ca !important;
 }
-.btn-secondary:hover{
-	background-color:  #0085ca !important;
-	border-color: #0085ca !important;
+
+.btn-secondary:hover {
+    background-color: #0085ca !important;
+    border-color: #0085ca !important;
 }
-.error, .validateError{
-	color: #FF0000;
+
+.error,
+.validateError {
+    color: #FF0000;
 }
-.form-check-input{
-	border-color: #0c2340;
+
+.form-check-input {
+    border-color: #0c2340;
 }
-#example5 .dataTables_empty{
-	text-align: center;
+
+#example5 .dataTables_empty {
+    text-align: center;
 }
-#main-wrapper{
-	transition: all 0.1s ease-in-out left !important;
+
+#main-wrapper {
+    transition: all 0.1s ease-in-out left !important;
 }
-#main-wrapper, #main-wrapper.show{
-	opacity: none !important;
-	transition: none !important;
+
+#main-wrapper,
+#main-wrapper.show {
+    opacity: none !important;
+    transition: none !important;
 }
+
 .nice-select .list {
     left: 0 !important;
     right: 0 !important;
 }
-.copyright{
-	position: absolute;
+
+.dlabnav .copyright {
+    position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
+    /* right: 0; */
     background: #fff;
     padding: 10px;
     text-align: center;
+    z-index: 22;
+    /* width: revert; */
+    width: 16rem;
 }
+
 .datepicker.datepicker-dropdown {
     background: #fff !important;
     border-radius: 0.0625rem;
     border: 0.0625rem solid #EEEEEE;
     width: 25% !important;
 }
-.datepicker.datepicker-dropdown td.day{
-	font-size: 14px !important;
-	text-align: center !important;
+
+.datepicker.datepicker-dropdown td.day {
+    font-size: 14px !important;
+    text-align: center !important;
 }
-.datepicker.datepicker-dropdown th.next, .datepicker.datepicker-dropdown th.prev,.datepicker.datepicker-dropdown th.dow,.datepicker.datepicker-dropdown th.datepicker-switch, .datepicker.datepicker-dropdown th.next, .datepicker.datepicker-dropdown th.prev{
- 	cursor: pointer;
- 	font-weight: bold !important;
- 	padding: 14px 0 !important;
+
+.datepicker.datepicker-dropdown th.next,
+.datepicker.datepicker-dropdown th.prev,
+.datepicker.datepicker-dropdown th.dow,
+.datepicker.datepicker-dropdown th.datepicker-switch,
+.datepicker.datepicker-dropdown th.next,
+.datepicker.datepicker-dropdown th.prev {
+    cursor: pointer;
+    font-weight: bold !important;
+    padding: 14px 0 !important;
 }
-.gradient-9, .datepicker.datepicker-dropdown td.day:hover, .datepicker.datepicker-dropdown th.next:hover, .datepicker.datepicker-dropdown th.prev:hover, .datepicker table tr td.selected, .datepicker table tr td.active, .datepicker table tr td.today, .datepicker table tr td.today:hover, .datepicker table tr td.today.disabled, .datepicker table tr td.today.disabled:hover{
-	cursor: pointer;
+
+.gradient-9,
+.datepicker.datepicker-dropdown td.day:hover,
+.datepicker.datepicker-dropdown th.next:hover,
+.datepicker.datepicker-dropdown th.prev:hover,
+.datepicker table tr td.selected,
+.datepicker table tr td.active,
+.datepicker table tr td.today,
+.datepicker table tr td.today:hover,
+.datepicker table tr td.today.disabled,
+.datepicker table tr td.today.disabled:hover {
+    cursor: pointer;
     background: #0c2340 !important;
     box-shadow: none !important;
     color: #fff !important;
 }
-.fc-theme-standard .fc-scrollgrid.fc-scrollgrid-liquid, .fc-scrollgrid, table{
-	width: 100% !important;
+
+.fc-theme-standard .fc-scrollgrid.fc-scrollgrid-liquid,
+.fc-scrollgrid,
+table {
+    width: 100% !important;
 }
-.datepicker.datepicker-dropdown td.day{
-	height: 3rem!important;
+
+.datepicker.datepicker-dropdown td.day {
+    height: 3rem!important;
     width: 3rem !important;
 }
-.datepicker.datepicker-dropdown th.next, .datepicker.datepicker-dropdown th.prev, .datepicker.datepicker-dropdown th.dow, .datepicker.datepicker-dropdown th.datepicker-switch, .datepicker.datepicker-dropdown th.next, .datepicker.datepicker-dropdown th.prev{
-	cursor: pointer;
-	font-size: 14px !important;
-	text-align: center !important;
+
+.datepicker.datepicker-dropdown th.next,
+.datepicker.datepicker-dropdown th.prev,
+.datepicker.datepicker-dropdown th.dow,
+.datepicker.datepicker-dropdown th.datepicker-switch,
+.datepicker.datepicker-dropdown th.next,
+.datepicker.datepicker-dropdown th.prev {
+    cursor: pointer;
+    font-size: 14px !important;
+    text-align: center !important;
 }
-.datepicker-switch{
-	font-size: 1.25rem !important;
+
+.datepicker-switch {
+    font-size: 1.25rem !important;
 }
-.datepicker-days .prev,.datepicker-days .next,.datepicker-months .prev,.datepicker-months .next,.datepicker-years .prev,.datepicker-years .next,.datepicker-decades .prev,.datepicker-decades .next,.datepicker-centuries .prev,.datepicker-centuries .next{
-	visibility: hidden;
+
+.datepicker-days .prev,
+.datepicker-days .next,
+.datepicker-months .prev,
+.datepicker-months .next,
+.datepicker-years .prev,
+.datepicker-years .next,
+.datepicker-decades .prev,
+.datepicker-decades .next,
+.datepicker-centuries .prev,
+.datepicker-centuries .next {
+    visibility: hidden;
 }
-.month,.year{
-	cursor: pointer;
-	display: inline-flex;
+
+.month,
+.year {
+    cursor: pointer;
+    display: inline-flex;
     text-align: center;
     font-size: 14px;
     padding: 7px;
@@ -96,82 +156,389 @@ a:hover {
     width: 25%;
     justify-content: center;
 }
-.month:hover,.year:hover{
-	cursor: pointer;
-	background: #0c2340;
-	color: #fff;
-	border-radius: 10px;
+
+.month:hover,
+.year:hover {
+    cursor: pointer;
+    background: #0c2340;
+    color: #fff;
+    border-radius: 10px;
 }
 
-.datepicker .prev:after{
-	content: "\f0d9";
-	font-family: "Font Awesome 5 Free";
-	border: 0;
-	margin: 0 auto;
-	font-size: 1.375rem;
-	font-weight: 700;
-	visibility: visible;
-	color: #000 !important;
-	cursor: pointer;
+.datepicker .prev:after {
+    content: "\f0d9";
+    font-family: "Font Awesome 5 Free";
+    border: 0;
+    margin: 0 auto;
+    font-size: 1.375rem;
+    font-weight: 700;
+    visibility: visible;
+    color: #000 !important;
+    cursor: pointer;
 }
-.datepicker .next:after{
-	content: "\f0da";
-	font-family: "Font Awesome 5 Free";
-	border: 0;
-	margin: 0 auto;
-	font-size: 1.375rem;
-	font-weight: 700;
-	visibility: visible;
-	color: #000 !important;
-	cursor: pointer;
+
+.datepicker .next:after {
+    content: "\f0da";
+    font-family: "Font Awesome 5 Free";
+    border: 0;
+    margin: 0 auto;
+    font-size: 1.375rem;
+    font-weight: 700;
+    visibility: visible;
+    color: #000 !important;
+    cursor: pointer;
 }
-.datepicker .old.day,.new.day{
-	opacity: .3 !important;
+
+.datepicker .old.day,
+.new.day {
+    opacity: .3 !important;
 }
-.datepicker table tr td.selected, .datepicker table tr td.active.active{
-	cursor: pointer;
-	background: #0c2340 !important;
+
+.datepicker table tr td.selected,
+.datepicker table tr td.active.active {
+    cursor: pointer;
+    background: #0c2340 !important;
     box-shadow: none !important;
     color: #fff !important;
 }
-.dlabnav .header-info2 img{
-	height: 2.5rem;
+
+.hours {
+    padding-left: 24px;
 }
-.hours{
-	padding-left: 24px;
+
+.txthours {
+    padding-left: 69px;
 }
-.txthours{
-	padding-left: 69px;
+
+.txttotal {
+    padding-left: 96px;
 }
-.txttotal{
-	padding-left: 96px;
-}
+
 .header-profile img {
-	width: 3.4375rem !important;
+    width: 55px !important;
+    height: 35px!important;
 }
-.timesheet-tbl td{
-	padding: 10px;
+
+.timesheet-tbl td {
+    padding: 10px;
 }
-.txtemail{
-	color:#0085ca;
+
+.txtemail {
+    color: #0085ca;
 }
-.pre-day:before,.next-day:before{
-	color: #0085ca;
+
+.pre-day:before,
+.next-day:before {
+    color: #0085ca;
 }
-#current_date{
-	font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
+
+#current_date {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.txttotal{
+
+.txttotal {
     padding-left: 65px;
     border: none;
     outline: none;
-    font-family: 'poppins', sans-serif;
+    font-family: 'univiaPro', sans-serif;
     font-weight: 600;
     color: #393939;
 }
-.txtemail{
-	border: none;
+
+.txtemail {
+    border: none;
     outline: none;
-    font-family: 'poppins', sans-serif;
+    font-family: 'univiaPro', sans-serif;
     width: 200px;
+}
+
+
+/* -----------------------common new style - 13-04-2023------------------------- */
+
+.header-left .dashboard_bar {
+    font-size: 20px;
+}
+
+.header {
+    height: 4rem;
+}
+
+.nav-header {
+    height: 4rem;
+    width: 16rem;
+}
+
+.dlabnav {
+    top: 4rem;
+    height: calc(100% - 50px);
+}
+
+.dlabnav .header-info2 img {
+    width: 3.5rem;
+    margin: 10px 0;
+    height: 2.2rem;
+}
+
+[data-header-position="fixed"] .content-body {
+    padding-top: 3.5rem;
+}
+
+.content-body .container-fluid,
+.content-body .container-sm,
+.content-body .container-md,
+.content-body .container-lg,
+.content-body .container-xl,
+.content-body .container-xxl {
+    padding-left: 2rem;
+    padding-top: 2rem;
+    padding-right: 2rem;
+}
+
+table.dataTable thead th {
+    font-size: 0.9rem;
+}
+
+table.dataTable tbody td {
+    font-size: 0.895rem;
+}
+
+[data-sidebar-style="full"][data-layout="vertical"] .dlabnav .metismenu>li>a {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    margin: 3px 0;
+}
+
+.dlabnav .metismenu ul a {
+    font-size: 0.9rem;
+}
+
+.dlabnav .metismenu {
+    padding-top: 5px;
+}
+
+.dlabnav {
+    width: 16rem;
+}
+
+.content-body {
+    margin-left: 16rem;
+}
+
+.card-body {
+    padding: 1.6rem;
+}
+
+.job-icon h2,
+.job-icon .h2 {
+    font-size: 1.600rem;
+    font-weight: 600;
+}
+
+.card {
+    margin-bottom: 10px;
+    height: auto;
+}
+
+.job-icon.pb-4,
+.job-icon.pt-4 {
+    padding-bottom: 10px !important;
+}
+
+.update-profile img {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 1.25rem;
+}
+
+.update-profile span.mb-4 {
+    margin-bottom: 0.5rem !important;
+}
+
+.content-body .row.mt-4 {
+    margin-top: 0.5rem !important;
+}
+
+.update-profile.pb-4 {
+    padding-bottom: 0.5rem !important;
+}
+
+table.dataTable thead th {
+    padding: 10px;
+}
+
+table.dataTable tbody td {
+    padding: 5px 10px;
+}
+
+.action-buttons .btn {
+    height: 30px;
+    width: 30px;
+    line-height: 26px;
+}
+
+.action-buttons .light.btn-success svg.svg-main-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.action-buttons .light.btn-danger svg.svg-main-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.action-buttons .light.btn-secondary svg.svg-main-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous,
+.dataTables_wrapper .dataTables_paginate .paginate_button.next {
+    font-size: 1rem;
+    height: auto;
+    width: fit-content;
+    padding: 0 1.25rem;
+    line-height: 2.5rem;
+    margin: 0 0.3rem;
+    display: inline-block;
+    line-height: 35px;
+}
+
+.dataTables_wrapper .dataTables_paginate span .paginate_button {
+    font-size: 1rem;
+    height: auto;
+    width: 35px;
+    height: 35px;
+    padding: 0 39px;
+    padding: 0 0.25rem;
+    line-height: 35px;
+}
+
+.header-right .notification_dropdown .nav-link {
+    padding: 0px
+}
+
+.header-right .notification_dropdown .nav-link .badge {
+    line-height: 12px;
+    font-size: 10px;
+    padding: 3px;
+    min-width: 20px;
+    min-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-weight: normal;
+    height: 20px;
+    width: 20px;
+}
+
+@media only screen and (max-width: 63.9375rem) {
+    .nav-header {
+        width: 4rem;
+    }
+    .dlabnav .header-info2 img {
+        width: 4rem;
+    }
+}
+
+.dlabnav .metismenu .has-arrow:after {
+    right: 0.875rem;
+    top: 40%;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_processing,
+.dataTables_wrapper .dataTables_paginate {
+    margin-bottom: 0.25rem;
+}
+
+.dlabnav .header-info2 img {
+    margin: 0 5px;
+}
+
+.nav-link {
+    padding: 10px 0px;
+}
+
+.nav-header .brand-logo,
+.header {
+    border-bottom: 1px solid #eee;
+}
+
+.header-right .nav-item {
+    margin: 0 5px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    right: 0;
+    left: 0;
+    z-index: 1024;
+}
+
+.footer .copyright {
+    margin-top: 0px;
+}
+
+[data-sidebar-style="full"][data-layout="vertical"] .dlabnav .header-profile2 .sidebar-info i {
+    margin: auto;
+}
+
+.btn {
+    padding: 7px 15px;
+}
+
+.content-body {
+    min-height: auto !important;
+    margin-bottom: 80px;
+}
+
+.content-body .d-flex.align-items-center.mb-4 {
+    margin-bottom: 1rem !important;
+}
+
+.dlabnav .header-info2 span {
+    font-size: 1rem;
+}
+
+.card-footer {
+    padding: 10px;
+}
+
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav {
+    width: 6rem;
+}
+
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .metismenu>li>a {
+    padding: 1.1rem 1.125rem;
+}
+
+[data-sidebar-style="full"][data-layout="vertical"] .menu-toggle .dlabnav .header-info2 {
+    justify-content: center;
+}
+
+.dlabnav .metismenu ul a:hover,
+.dlabnav .metismenu ul a:focus,
+.dlabnav .metismenu ul a.mm-active {
+    color: #0085ca !important;
+}
+
+.dlabnav .metismenu ul a.mm-active::before {
+    background: #0085ca !important;
+}
+
+.dlabnav .metismenu a {
+    color: #0c2340;
+}
+
+
+/* #main-wrapper,
+#main-wrapper.show {
+    height: 100vh;
+} */
+
+.nice-select.open .list {
+    max-height: 300px;
+    overflow-y: auto !important;
 }
