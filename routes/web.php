@@ -30,7 +30,7 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => ['auth']], function () {
-    Route::get('home', [HomeController::class, 'index'])->name('home');
+    Route::get('dashboard', [HomeController::class, 'index'])->name('home');
     Route::resource('profile', ProfileController::class);
 
     /* Designation Master */

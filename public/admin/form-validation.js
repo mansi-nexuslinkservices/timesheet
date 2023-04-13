@@ -23,7 +23,9 @@ $(document).ready(function(){
                 required: true
             },
             password: {
-                required: true
+                depends: function (element) {
+                    if(urlSegment === "create") { return true }
+                }
             },
         },
         messages: {

@@ -43,8 +43,9 @@
 										@enderror --}}
 									</div>
 									<div class="col-md-12 mb-4">
-									  	<label class="form-label font-w600">Password<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="password" class="form-control password" name="password" placeholder="Enter Password" value="{{ old('password',$admin_user['password'] ?? '') }}">
+									  	<label class="form-label font-w600">Password
+									  		@if(isset($admin_user) && empty($admin_user))<span class="text-danger scale5 ms-2">*</span>@endif</label>
+										<input type="password" class="form-control password" name="password" placeholder="Enter Password" value="">
 										{{-- @error('surname')
     										<div class="error">{{ $message }}</div>
 										@enderror --}}

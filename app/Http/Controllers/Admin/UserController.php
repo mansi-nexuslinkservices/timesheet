@@ -123,15 +123,16 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email,'.$id.',id,deleted_at,NULL',
-            'password' => 'required'
         ]);
 
         $data = array(
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            //'super_admin' => 1
         );    
+
+        if(isset($request->password) && !empty($request->password)){
+            $data['password'] = Hash::make($request->password);
+        }
 
         $admin_user = User::find($id);
         $admin_user->update($data);
