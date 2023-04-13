@@ -5,18 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Models\User;
-use App\Models\RateCard;
+use App\Models\ProjectType;
 
-class ProjectType extends Model
+class RateCard extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public $table = 'project_types';
+    public $table = 'rate_cards';
     
     protected $guarded = [];
 
-    public function ratecard(){
-        return $this->belongsTo(RateCard::class,'id','project_type_id');
+    public function project_type() {
+        return $this->hasOne(ProjectType::class, 'id', 'project_type_id');
     }
 }
