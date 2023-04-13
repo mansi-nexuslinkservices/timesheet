@@ -34,10 +34,11 @@
 									<div class="col-md-2 mb-4">
 										<div class="author-profile">
 											<div class="author-media">
-												<img src="@if(isset($user['profile']) && $user['profile'] != '') {{asset('storage/user-profile/thumb-images/'.$user['profile']) }}" @else {{ asset('backend/images/profile/userimg.png') }} @endif
-												alt="">
+												<img src="@if(isset($user['profile']) && $user['profile'] != '') {{asset('storage/user-profile/thumb-images/'.$user['profile']) }} @else {{asset('backend/images/profile/userimg.png') }} @endif"
+												alt="" id="previewImg">
 												<div class="upload-link" title="" data-bs-toggle="tooltip" data-placement="right" data-original-title="update">
-													<input type="file" class="update-flie" name="profile">
+													<input type="file" class="update-flie"
+														onchange="loadPreview(this);"  name="profile">
 													<i class="fa fa-camera"></i>
 												</div>
 											</div>
@@ -156,6 +157,19 @@
 					}
 		        });
 			}
+
+			
 		});
+		function loadPreview(input, id) {
+        id = id || '#previewImg';
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                //$(id).attr('src', e.target.result).width(200).height(150);
+                $(id).attr('src', e.target.result).attr("style", "display:block");
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
 	</script>
 @endsection
