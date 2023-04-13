@@ -77,6 +77,32 @@ $(document).ready(function(){
         },
     });
 
+    $('#rateCard').validate({
+        ignore: [],
+        rules: {
+            project_type_id: {
+                required: true
+            },
+        },
+        messages: {
+            project_type_id: {
+                required: "Please select project type",
+            },
+        },
+        onfocusout: function (element) {
+            jQuery(element).valid()
+        },
+        errorElement: "div",
+        errorClass: "validateError",
+        errorPlacement: function (error, element) {
+            if(element.attr("name") == 'project_type_id') {
+                error.insertAfter('.projectType');
+            } else {
+                error.insertAfter(element);
+            }
+        },
+    });
+
     $('#projectType').validate({
         ignore: [],
         rules: {

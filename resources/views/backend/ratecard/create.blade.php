@@ -28,12 +28,13 @@
 								<div class="row">
 									<div class="col-xl-12 mb-4">
 									  	<label  class="form-label font-w600">Select Project Type<span class="text-danger scale5 ms-2">*</span></label>
-										<select class="default-select form-control projectTypeId" name="project_type_id">
-											<option>Select Project Type</option>
+										<select class="default-select form-control" name="project_type_id">
+											<option value="">Select Project Type</option>
 											@foreach($projectTypes as $projectType)
 												<option value="{{$projectType->id}}" @if(isset($rateCard->project_type_id) && $rateCard->project_type_id == $projectType->id) {{'selected'}} @endif>{{$projectType->name}}</option>
 											@endforeach
 										</select>
+										<div class="projectType"></div>
 										@error('project_type_id')
 											<div class="error">{{ $message }}</div>
 										@enderror

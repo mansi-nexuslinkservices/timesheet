@@ -39,10 +39,10 @@ class RateCardController extends Controller
             $data_arr = array();
             foreach ($records as $record) {
                 $id = $record->id;
-                $project_type_id = $record->project_type->name ?? '';
-                $junior = $record->junior ?? '';
-                $medior = $record->medior ?? '';
-                $senior = $record->senior ?? '';
+                $project_type_id = $record->project_type->name ?? '-';
+                $junior = $record->junior ?? '-';
+                $medior = $record->medior ?? '-';
+                $senior = $record->senior ?? '-';
                 $created_at = $record->created_at;
                 $created_at = date("m/d/Y H:i A", strtotime($record->created_at));
 
@@ -89,7 +89,6 @@ class RateCardController extends Controller
             'medior' => $request['medior'],
             'senior' => $request['senior'],
         ); 
-
         $rateCard = RateCard::create($data);
         return redirect()->route('admin.rates.index')->with('success', 'Rate created successfully!');
     }
