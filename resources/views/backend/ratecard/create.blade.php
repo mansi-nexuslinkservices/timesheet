@@ -10,18 +10,18 @@
 			<div class="d-flex align-items-center mb-4">
 				<h4 class="fs-20 font-w600 mb-0 me-auto">{{$list_page.' '.$inner_page_module_name}}</h4>
 				<div>
-					<a href="{{route('admin.rate-cards.index')}}" class="btn btn-primary btn-sm me-3"> <i class="fas fa-arrow-left"></i></a>
+					<a href="{{route('admin.rates.index')}}" class="btn btn-primary btn-sm me-3"> <i class="fas fa-arrow-left"></i></a>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xl-6">
 					<div class="card">
 						@if(!empty($rateCard))
-							<form method="POST" action="{{route('admin.rate-cards.update',$rateCard['id'])}}" id="rateCard">
+							<form method="POST" action="{{route('admin.rates.update',$rateCard['id'])}}" id="rateCard">
 							@csrf
 							@method('PATCH')
 						@else
-							<form method="POST" action="{{route('admin.rate-cards.store')}}" id="rateCard">
+							<form method="POST" action="{{route('admin.rates.store')}}" id="rateCard">
 							@csrf
 						@endif
 							<div class="card-body">
@@ -62,7 +62,7 @@
 							<div class="card-footer text-end">
 								<div>
 									<input type="submit" value="Submit" class="btn btn-primary me-3">
-									<a href="{{route('admin.rate-cards.index')}}" type="submit" class="btn btn-secondary">Close</a>
+									<a href="{{route('admin.rates.index')}}" type="submit" class="btn btn-secondary">Close</a>
 								</div>
 							</div>
 						</form>

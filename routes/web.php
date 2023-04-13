@@ -65,6 +65,6 @@ Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => ['auth']], fu
     Route::get('getTimesheet', [TimesheetsController::class,'getTimesheet'])->name('getTimesheet');
 
     /* Timesheet Module */
-    Route::resource('rate-cards', RateCardController::class);
-    Route::get('getRateCard', [RateCardController::class,'getRateCard'])->name('getRateCard');
+    Route::resource('rates', RateCardController::class);
+    Route::get('getRates', [RateCardController::class,'getRates'])->name('getRates');
 });

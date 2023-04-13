@@ -70,6 +70,15 @@
                             <li class="@if(request()->routeIs('admin.timesheets*') || request()->routeIs('admin.timesheets*')) {{'mm-active'}} @endif"><a class="{{ request()->routeIs('admin.timesheets*') ? 'mm-active' : ''}}" href="{{route('admin.timesheets.index')}}">Timesheets</a></li>
 						</ul>
                     </li>
+
+                    <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
+							<i class="flaticon-093-waving"></i>
+							<span class="nav-text">Rate Card</span>
+						</a>
+                        <ul aria-expanded="false">
+                            <li class="@if(request()->routeIs('admin.rates*') || request()->routeIs('admin.rates*')) {{'mm-active'}} @endif"><a class="{{ request()->routeIs('admin.rates*') ? 'mm-active' : ''}}" href="{{route('admin.rates.index')}}">Rates</a></li>
+                        </ul>
+                    </li>
                 </ul>
 				<div class="copyright">
 					<p><strong class="text-center">NowOnline</strong> © 2023 All Rights Reserved</p>

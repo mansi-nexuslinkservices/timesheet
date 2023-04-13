@@ -11,7 +11,7 @@
 				<div class="d-flex align-items-center mb-4 flex-wrap">
 					<h4 class="fs-20 font-w600  me-auto">{{$module_name.' '.$list_page}}</h4>
 					<div>
-						<a href="{{route('admin.rate-cards.create')}}" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add New Rate Card</a>
+						<a href="{{route('admin.rates.create')}}" class="btn btn-primary me-3 btn-sm"><i class="fas fa-plus me-2"></i>Add New Rate</a>
 					</div>
 				</div>
 				<div class="row">
@@ -53,7 +53,7 @@
 	            { orderable: false, targets: -1}
 	            ],
 	            autoWidth: false,
-	            ajax: "{{ route('admin.getRateCard') }}",
+	            ajax: "{{ route('admin.getRates') }}",
 	            columns: [
 	                {render: function (data, type, row, meta) {
 	                    return meta.row + meta.settings._iDisplayStart + 1;
@@ -65,9 +65,9 @@
 	                {data: 'created_at'},
 	                {"render": function (data, type, row, meta ) {
 	                    let id = JSON.stringify(row.id);
-	                    var view_url  = "{{route('admin.rate-cards.show',':id')}}";
-	                    var edit_url  = "{{route('admin.rate-cards.edit',':id')}}";
-	                    var delete_url  = "{{route('admin.rate-cards.destroy',':id')}}";
+	                    var view_url  = "{{route('admin.rates.show',':id')}}";
+	                    var edit_url  = "{{route('admin.rates.edit',':id')}}";
+	                    var delete_url  = "{{route('admin.rates.destroy',':id')}}";
 	                    view_url = view_url.replace(':id', id );
 	                    edit_url = edit_url.replace(':id', id );
 	                    delete_url = delete_url.replace(':id', id );
@@ -89,7 +89,7 @@
 			}).then(
 		        function (isConfirm)  {
 		        	if (isConfirm.value){
-			            var url = '{{ route("admin.rate-cards.destroy", ":id") }}';
+			            var url = '{{ route("admin.rates.destroy", ":id") }}';
 			            url = url.replace(':id', id );
 			            $.ajax({
 			                type:"POST",

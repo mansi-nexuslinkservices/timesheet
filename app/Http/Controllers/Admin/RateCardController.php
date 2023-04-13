@@ -16,11 +16,11 @@ class RateCardController extends Controller
     public $update_link = '';
 
     public function __construct(){
-        $this->module_name = trans('admin/rate-card.module_name');
-        $this->inner_page_module_name = trans('admin/rate-card.inner_page_module_name');
-        $this->create_link = route('admin.rate-cards.create');
-        $this->update_link = route('admin.rate-cards.update', 'id');
-        $this->list_link = route('admin.rate-cards.index');
+        $this->module_name = trans('admin/rates.module_name');
+        $this->inner_page_module_name = trans('admin/rates.inner_page_module_name');
+        $this->create_link = route('admin.rates.create');
+        $this->update_link = route('admin.rates.update', 'id');
+        $this->list_link = route('admin.rates.index');
     }
 
     /**
@@ -33,7 +33,7 @@ class RateCardController extends Controller
         return view('backend.ratecard.index',compact('module_name','list_page'));
     }
 
-    public function getRateCard(Request $request){
+    public function getRates(Request $request){
         if ($request->ajax()) {
             $records = RateCard::with('project_type')->whereNull('deleted_at')->orderby('id','desc')->get();
             $data_arr = array();
@@ -91,7 +91,7 @@ class RateCardController extends Controller
         ); 
 
         $rateCard = RateCard::create($data);
-        return redirect()->route('admin.rate-cards.index')->with('success', 'Rate card created successfully!');
+        return redirect()->route('admin.rates.index')->with('success', 'Rate created successfully!');
     }
 
     /**
@@ -136,7 +136,7 @@ class RateCardController extends Controller
         $rateCard = RateCard::find($id);
         $rateCard->update($data);
 
-        return redirect()->route('admin.rate-cards.index')->with('success', 'Rate card updated successfully!');
+        return redirect()->route('admin.rates.index')->with('success', 'Rate updated successfully!');
     }
 
     /**
@@ -151,6 +151,6 @@ class RateCardController extends Controller
                 'message' => 'Rate card deleted successfully!',
             ]);
         }
-        return redirect()->route('admin.rate-cards.index')->with('success', 'Rate card deleted successfully!');
+        return redirect()->route('admin.rates.index')->with('success', 'Rate deleted successfully!');
     }
 }
