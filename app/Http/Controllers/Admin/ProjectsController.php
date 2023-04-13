@@ -79,7 +79,10 @@ class ProjectsController extends Controller
         $list_page = trans('admin/common.add');
         $inner_page_module_name = $this->inner_page_module_name;
         $projectTypes = ProjectType::whereNull('deleted_at')->orderby('id','desc')->get();
-        $employees = User::with('roles')->whereNotIn('name',['admin'])->get();
+        $employees = User::with('roles')->whereHas('roles', function($q) {
+                $q->whereIn('name', ['project manager','team leader','employee']);
+            })->get();
+        /*$employees = User::with('roles')->whereNotIn('name',['admin'])->get();*/
         return view('backend.project.create',compact('employees','projectTypes','list_page','inner_page_module_name'));
     }
 
@@ -141,7 +144,10 @@ class ProjectsController extends Controller
         $inner_page_module_name = $this->inner_page_module_name;
         $project = Project::find($id);
         $projectTypes = ProjectType::whereNull('deleted_at')->orderby('id','desc')->get();
-        $employees = User::with('roles')->whereNotIn('name',['admin'])->get();
+        /*$employees = User::with('roles')->whereNotIn('name',['admin'])->get();*/
+        $employees = User::with('roles')->whereHas('roles', function($q) {
+                $q->whereIn('name', ['project manager','team leader','employee']);
+            })->get();
         $projectUsers = ProjectUser::where('project_id',$id)->get();
         $multiple_users = [];
         foreach($projectUsers as $user){
