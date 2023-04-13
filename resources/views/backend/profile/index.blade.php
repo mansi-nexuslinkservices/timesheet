@@ -42,7 +42,7 @@
 												</div>
 											</div>
 											<div class="author-info">
-												<h6 class="title">{{$user['name'] ?? ''}}</h6>
+												<h6 class="title">{{$user['name'].' ' ?? ''}}{{$user['surname'] ?? ''}}</h6>
 												<span>{{$user['specialty'] ?? ''}}</span>
 											</div>
 										</div>
@@ -50,59 +50,62 @@
 								</div>
 								<div class="row">
 									<div class="col-md-4 mb-4">
-									  <label class="form-label font-w600">Firstname<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="text" class="form-control firstName" name="name" placeholder="Enter Firstname" value="{{ old('name',$user['name'] ?? '') }}">
+									  <label class="form-label font-w600">First Name<span class="text-danger scale5 ms-2">*</span></label>
+										<input type="text" class="form-control firstName" name="name" placeholder="Enter first name" value="{{ old('name',$user['name'] ?? '') }}">
 										@error('name')
     										<div class="error">{{ $message }}</div>
 										@enderror
 									</div>
 									<div class="col-md-4 mb-4">
-									  	<label class="form-label font-w600">Lastname<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="text" class="form-control lastName" name="surname" placeholder="Enter Lastname" value="{{ old('surname',$user['surname'] ?? '') }}">
+									  	<label class="form-label font-w600">Last Name<span class="text-danger scale5 ms-2">*</span></label>
+										<input type="text" class="form-control lastName" name="surname" placeholder="Enter last name" value="{{ old('surname',$user['surname'] ?? '') }}">
 										@error('surname')
     										<div class="error">{{ $message }}</div>
 										@enderror
 									</div>
 									<div class="col-md-4 mb-4">
-										<label class="form-label font-w600">Specialty<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="text" class="form-control userSpeciality" name="specialty" placeholder="Enter specialty" value="{{ old('specialty',$user['specialty'] ?? '') }}">
-										@error('specialty')
+										<label class="form-label font-w600">Email Address<span class="text-danger scale5 ms-2">*</span></label>
+										<input type="text" class="form-control Email" name="email" placeholder="Enter email" value="{{ old('email',$user['email'] ?? '') }}">
+										@error('email')
     										<div class="error">{{ $message }}</div>
 										@enderror
 									</div>
+									
 								</div>
 								<div class="row">
 									<div class="col-md-4 mb-4">
-										<label class="form-label font-w600">Skills<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="text" class="form-control userSkill" name="skills" placeholder="Enter skills" value="{{ old('skills',$user['skills'] ?? '') }}">
-										@error('skills')
-    										<div class="error">{{ $message }}</div>
-										@enderror
-									</div>
-									<div class="col-md-4 mb-4">
 										<label class="form-label font-w600">Gender<span class="text-danger scale5 ms-2">*</span></label>
-										<select class="selectpicker nice-select default-select form-control wide mh-auto" name="gender">
-											<option>Male</option>
-											<option>Female</option>
+										<select class="default-select form-control" name="gender">
+											<option>Select Gender</option>
+											<option value="1" @if(isset($user->gender) && $user->gender == 1) {{'selected'}} @endif>Male</option>
+											<option value="2" @if(isset($user->gender) && $user->gender == 2) {{'selected'}} @endif>Female</option>
 										</select>
+										<div class="genderId"></div>
 									</div>
 									<div class="col-md-4 mb-4">
 										<label class="form-label font-w600">Birth Date<span class="text-danger scale5 ms-2">*</span></label>
 										<input id="datepicker" class="{{-- datepicker-default  --}}form-control birthDate" type="text" id="datepicker" name="birth_date" placeholder="Enter birth date" value="{{$date ?? ''}}" autocomplete="off">
 									</div>
-								</div>
-								<div class="row">
 									<div class="col-md-4 mb-4">
 										<label class="form-label font-w600">Phone<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="text" class="form-control" placeholder="Enter phone number" name="phone" value="{{ old('phone',$user['phone'] ?? '') }}">
+										<input type="text" class="form-control phone" placeholder="Enter phone number" name="phone" value="{{ old('phone',$user['phone'] ?? '') }}">
 										@error('phone')
     										<div class="error">{{ $message }}</div>
 										@enderror
 									</div>
+								</div>
+								<div class="row">
 									<div class="col-md-4 mb-4">
-										<label class="form-label font-w600">Email adress<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="text" class="form-control Email" name="email" placeholder="Enter email" value="{{ old('email',$user['email'] ?? '') }}">
-										@error('email')
+										<label class="form-label font-w600">Specialty</label>
+										<input type="text" class="form-control userSpeciality" name="specialty" placeholder="Enter specialty" value="{{ old('specialty',$user['specialty'] ?? '') }}">
+										@error('specialty')
+    										<div class="error">{{ $message }}</div>
+										@enderror
+									</div>
+									<div class="col-md-4 mb-4">
+										<label class="form-label font-w600">Skills</label>
+										<input type="text" class="form-control userSkill" name="skills" placeholder="Enter skills" value="{{ old('skills',$user['skills'] ?? '') }}">
+										@error('skills')
     										<div class="error">{{ $message }}</div>
 										@enderror
 									</div>

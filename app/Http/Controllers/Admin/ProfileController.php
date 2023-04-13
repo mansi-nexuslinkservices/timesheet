@@ -79,8 +79,8 @@ class ProfileController extends Controller
             'name' => 'required',
             'surname' => 'required',
             'email' => 'required|unique:users,email,'.$id.',id',
-            'specialty' => 'required',
-            'skills' => 'required',
+           /* 'specialty' => 'required',
+            'skills' => 'required',*/
             'gender' => 'required',
             'birth_date' => 'required',
             'phone' => 'required',

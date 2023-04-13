@@ -253,12 +253,18 @@ $(document).ready(function(){
             surname: {
                 required: true
             },
-            specialty: {
+            phone: {
+                required: true
+            },
+            gender: {
+                required: true
+            },
+            /*specialty: {
                 required: true
             },
             skills: {
                 required: true
-            },
+            },*/
             birth_date: {
                 required: true
             },
@@ -274,12 +280,18 @@ $(document).ready(function(){
             surname: {
                 required: "Please enter lastname",
             },
-            specialty: {
+            phone: {
+                required: "Please enter phone number",
+            },
+            gender: {
+                required: "Please select gender",
+            },
+            /*specialty: {
                 required: "Please enter specialty",
             },
             skills: {
                 required: "Please enter skills",
-            },
+            },*/
             birth_date: {
                 required: "Please select your birth date",
             },
@@ -298,11 +310,15 @@ $(document).ready(function(){
                 error.insertAfter('.firstName');
             }else if(element.attr("name") == 'lastname') {
                 error.insertAfter('.lastName');
-            }else if(element.attr("name") == 'specialty') {
+            }else if(element.attr("name") == 'phone') {
+                error.insertAfter('.phone');
+            }else if(element.attr("name") == 'gender') {
+                error.insertAfter('.genderId');
+            }/*else if(element.attr("name") == 'specialty') {
                 error.insertAfter('.userSpeciality');
             }else if(element.attr("name") == 'skills') {
                 error.insertAfter('.userSkill');
-            }else if(element.attr("name") == 'birth_date') {
+            }*/else if(element.attr("name") == 'birth_date') {
                 error.insertAfter('.birthDate');
             }else if(element.attr("name") == 'email') {
                 error.insertAfter('.Email');
