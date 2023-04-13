@@ -18,9 +18,14 @@
 		<div class="container-fluid">
 			<div class="d-flex align-items-center mb-4">
 				<h4 class="fs-20 font-w600 mb-0 me-auto">{{$module_name}}</h4>
+				<div>
+					<a href="{{route('admin.home')}}" class="btn btn-primary btn-sm me-3"> <i class="fas fa-arrow-left"></i></a>
+				</div>
 			</div>
+
 			<div class="row">
 				<div class="col-xl-12">
+
 					<div class="card">
 						<form method="POST" action="{{ route('admin.profile.update',$user->id) }}" enctype="multipart/form-data" id="userProfile">
 
