@@ -542,3 +542,12 @@ table.dataTable tbody td {
     max-height: 300px;
     overflow-y: auto !important;
 }
+
+.dlabnav .metismenu>li>a:hover,
+.dlabnav .metismenu>li>a:hover i {
+    color: #0085ca !important;
+}
+
+.dlabnav .metismenu>li>a {
+    transition: all .74s;
+}
