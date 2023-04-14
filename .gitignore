@@ -17,3 +17,16 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+.lesshst
+.npm
+.local
+.config
+.cache
+.composer.phar
+.viminfo
+.profile
+.bash_history
+
+
+
+

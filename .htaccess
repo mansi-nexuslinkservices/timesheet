@@ -1,8 +1,6 @@
 <IfModule mod_rewrite.c>
 <IfModule mod_negotiation.c>
     Options -MultiViews
-    php_value max_execution_time 800
-    php_value memory_limit 64G
 </IfModule>
 
 RewriteEngine On
