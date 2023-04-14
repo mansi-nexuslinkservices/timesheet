@@ -55,7 +55,7 @@ a:hover {
 }
 
 .dlabnav .copyright {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     /* right: 0; */
@@ -474,7 +474,7 @@ table.dataTable tbody td {
     background: #fff;
     right: 0;
     left: 0;
-    z-index: 1024;
+    z-index: 2;
 }
 
 .footer .copyright {

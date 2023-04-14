@@ -80,8 +80,9 @@
                         </ul>
                     </li>
                 </ul>
-				<div class="copyright">
+				
+			</div>
+			<div class="copyright">
 					<p><strong class="text-center">NowOnline</strong> © 2023 All Rights Reserved</p>
 				</div>
-			</div>
         </div>
