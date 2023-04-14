@@ -299,7 +299,7 @@ table.dataTable thead th {
 }
 
 table.dataTable tbody td {
-    font-size: 0.895rem;
+    font-size: 0.850rem;
 }
 
 [data-sidebar-style="full"][data-layout="vertical"] .dlabnav .metismenu>li>a {
@@ -550,4 +550,8 @@ table.dataTable tbody td {
 
 .dlabnav .metismenu>li>a {
     transition: all .74s;
+}
+
+.dlabnav .metismenu li a {
+    color: #737B8B;
 }
