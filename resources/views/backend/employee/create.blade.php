@@ -58,7 +58,7 @@
 
 									<div class="col-xl-4 mb-4">
 									  	<label  class="form-label font-w600">Password<span class="text-danger scale5 ms-2">*</span></label>
-										<input type="password" class="form-control userPassword" name="password" placeholder="Enter password" aria-label="password" value="{{old('password', $employee['password'] ?? '')}}">
+										<input type="password" class="form-control userPassword" name="password" placeholder="Enter password" aria-label="password" value="">
 										@error('password')
 											<div class="error">{{ $message }}</div>
 										@enderror
@@ -165,7 +165,7 @@
 <script>
 	$(document).ready(function(){
 		$(".multi-select").select2({
-		    placeholder: "Select Project",
+		    placeholder: "Select Project Manager",
 		});
 		var url = "{{ url()->current() }}";
 		var route = "{{route('admin.employees.create')}}";
