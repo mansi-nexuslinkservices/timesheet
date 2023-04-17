@@ -32396,9 +32396,9 @@ a.ck.ck-button.ck-on:not(.ck-disabled):hover {
 }
 
 .badge-lg {
-    font-size: 0.875rem;
-    padding: 0rem 0.625rem;
-    line-height: 1.875rem;
+    font-size: 0.800rem;
+    padding: 2px 10px;
+    /* line-height: 0.875rem; */
 }
 
 .badge-xl {

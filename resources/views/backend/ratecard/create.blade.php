@@ -44,19 +44,32 @@
 									<div class="col-lg-5">
 										<label class="form-label font-w600 mb-4">Rates :</label>
 									</div>
-									<div class="col-lg-7 col-md-7">
-										<div class="col-xl-12 mb-4">
-										  	<label  class="form-label font-w600">Junior  €</label>
-											<input type="text" name="junior" class="form-control w-auto d-inline-block junior" value="{{$rateCard->junior ?? ''}}">
+									<div class="col-lg-7 col-md-7 text-left">
+										<div class="row mb-2">
+											<div class="col-lg-3 col-md-3 my-auto">
+											<label  class="form-label font-w600 mb-0">Junior  €</label>
+											</div>
+											<div class="col-lg-9 col-md-9 my-auto">
+											<input type="text" name="junior" class="form-control w-100 d-inline-block junior" value="{{$rateCard->junior ?? ''}}">
+											</div>
 										</div>
-										<div class="col-xl-12 mb-4">
-										  	<label  class="form-label font-w600">Medior  €</label>
-											<input type="text" name="medior" class="form-control w-auto d-inline-block medior" value="{{$rateCard->medior ?? ''}}">
+										<div class="row mb-2">
+											<div class="col-lg-3 col-md-3 my-auto">
+											<label  class="form-label font-w600 mb-0">Medior  €</label>
+											</div>
+											<div class="col-lg-9 col-md-9 my-auto">
+											<input type="text" name="medior" class="form-control w-100  d-inline-block medior" value="{{$rateCard->medior ?? ''}}">
+											</div>
 										</div>
-										<div class="col-xl-12 mb-4">
-										  	<label  class="form-label font-w600">Senior  €</label>
-											<input type="text" name="senior" class="form-control w-auto d-inline-block senior" value="{{$rateCard->senior ?? ''}}">
+										<div class="row mb-2">
+											<div class="col-lg-3 col-md-3 my-auto">
+											<label  class="form-label font-w600 mb-0">Senior  €</label>
+											</div>
+											<div class="col-lg-9 col-md-9 my-auto">
+											<input type="text" name="senior" class="form-control w-100  d-inline-block senior" value="{{$rateCard->senior ?? ''}}">
+											</div>
 										</div>
+										
 									</div>
 								</div>
 							</div>

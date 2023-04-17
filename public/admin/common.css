@@ -393,24 +393,24 @@ table.dataTable tbody td {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous,
 .dataTables_wrapper .dataTables_paginate .paginate_button.next {
-    font-size: 1rem;
+    font-size: 0.89rem;
     height: auto;
     width: fit-content;
     padding: 0 1.25rem;
     line-height: 2.5rem;
     margin: 0 0.3rem;
     display: inline-block;
-    line-height: 35px;
+    line-height: 32px;
 }
 
 .dataTables_wrapper .dataTables_paginate span .paginate_button {
-    font-size: 1rem;
+    font-size: 0.89rem;
     height: auto;
     width: 35px;
     height: 35px;
     padding: 0 39px;
     padding: 0 0.25rem;
-    line-height: 35px;
+    line-height: 32px;
 }
 
 .header-right .notification_dropdown .nav-link {
@@ -554,4 +554,20 @@ table.dataTable tbody td {
 
 .dlabnav .metismenu li a {
     color: #737B8B;
+}
+
+.badge-lg {
+    font-size: 0.800rem !important;
+    padding: 2px 10px!important;
+    line-height: 17px!important;
+}
+
+.light.badge-success,
+.light.btn-success {
+    background-color: #d2f7d1;
+    color: #43b341!important;
+}
+
+.light.btn-success g [fill] {
+    fill: #43b341;
 }
