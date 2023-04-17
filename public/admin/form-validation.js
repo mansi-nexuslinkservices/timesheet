@@ -164,6 +164,9 @@ $(document).ready(function(){
             project_type_id: {
                 required: true
             },
+            'user_id[]': {
+                required: true
+            },
         },
         messages: {
             name: {
@@ -171,6 +174,9 @@ $(document).ready(function(){
             },
             project_type_id: {
                 required: "Please select project type",
+            },
+            'user_id[]': {
+                required: "Please select user",
             },
         },
         onfocusout: function (element) {
@@ -183,7 +189,9 @@ $(document).ready(function(){
                 error.insertAfter('.projectName');
             }else if(element.attr("name") == 'project_type_id') {
                 error.insertAfter('.projectTypeId');
-            } else {
+            }else if(element.attr("name") == 'user_id[]') {
+                error.insertAfter('.userId');
+            }else{
                 error.insertAfter(element);
             }
         },
