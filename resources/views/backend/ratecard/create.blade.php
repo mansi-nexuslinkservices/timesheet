@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-	<div class="content-body">
+	<div class="content-body"> 
 		<div class="container-fluid">
 			<div class="d-flex align-items-center mb-4">
 				<h4 class="fs-20 font-w600 mb-0 me-auto">{{$list_page.' '.$inner_page_module_name}}</h4>
