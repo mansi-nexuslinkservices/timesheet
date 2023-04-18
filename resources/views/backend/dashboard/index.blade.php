@@ -12,9 +12,12 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
-		<div class="row mb-3">
-			<div class="col-12">
-			<div class="card-header border-0 pb-0 flex-wrap justify-content-end pt-0">
+		
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+				<div class="card-header border-0 pb-0 flex-wrap">
+                        <h4 class="fs-17 mb-1">Spent Hours & Billing</h4>
                         <div class="card-action coin-tabs mt-3 mt-sm-0">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
@@ -28,15 +31,6 @@
                                 </li>
                             </ul>
                         </div>
-                    </div>
-			</div>
-		</div>
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-				<div class="card-header border-0 pb-0 flex-wrap">
-                        <h4 class="fs-17 mb-1">Spent Hours & Billing</h4>
-                        
                     </div>
                     <div class="card-body">
                         <div class="row separate-row">
@@ -90,7 +84,7 @@
                                 <div class="job-icon py-3 d-flex justify-content-between">
                                     <div>
                                         <div class="d-flex align-items-center mb-1">
-                                            <h2 class="mb-0">100</h2>
+                                            <h2 class="mb-0">&#8364; 100</h2>
                                         </div>
                                         <span class="fs-14 d-block mb-0">Commercial Projects</span>
                                     </div>
@@ -101,7 +95,7 @@
                                 <div class="job-icon py-3 d-flex justify-content-between">
                                     <div>
                                         <div class="d-flex align-items-center mb-1">
-                                            <h2 class="mb-0">200</h2>
+                                            <h2 class="mb-0">&#8364; 200</h2>
                                         </div>
                                         <span class="fs-14 d-block mb-0">In-house Project Hours</span>
                                     </div>
@@ -112,7 +106,7 @@
                                 <div class="job-icon py-3 d-flex justify-content-between">
                                     <div>
                                         <div class="d-flex align-items-center mb-1">
-                                            <h2 class="mb-0">300</h2>
+                                            <h2 class="mb-0">&#8364; 300</h2>
                                         </div>
                                         <span class="fs-14 d-block mb-0">Idle Hours</span>
                                     </div>
@@ -123,7 +117,7 @@
                                 <div class="job-icon py-3 d-flex justify-content-between">
                                     <div>
                                         <div class="d-flex align-items-center mb-1">
-                                            <h2 class="mb-0">600</h2>
+                                            <h2 class="mb-0">&#8364; 600</h2>
                                         </div>
                                         <span class="fs-14 d-block mb-0">Total Hours</span>
                                     </div>
