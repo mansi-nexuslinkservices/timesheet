@@ -86,6 +86,7 @@
 				destroy: true,
 	            processing:true,
 	            serverSide: true,
+				scrollX:true,
 	            responsive: true,
 	            lengthChange: true,
 	            pageLength: 10,

@@ -48,6 +48,7 @@
 				destroy: true,
 	            processing:true,
 	            responsive: true,
+				scrollX:true,
 	            lengthChange: true,
 	            pageLength: 10,
 	            columnDefs: [

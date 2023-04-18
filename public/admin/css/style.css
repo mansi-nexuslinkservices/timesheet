@@ -43422,5 +43422,9 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
     color: #fff;
 }
 
+.auth-form img.brand-title {
+    width: 160px;
+}
+
 
 /*# sourceMappingURL=style.css.map */
