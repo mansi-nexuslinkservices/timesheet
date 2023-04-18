@@ -13,6 +13,10 @@
     width: 35px;
     margin-right: 5px;
 }
+.invalid-feedback strong {
+    font-weight: 500 !important;
+}
+
 </style>
 <div class="authincation h-100">
     <div class="container h-100">

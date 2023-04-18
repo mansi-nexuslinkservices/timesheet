@@ -9,6 +9,9 @@
     .brand-logo img {
     width: 210px;
 }
+.invalid-feedback strong {
+    font-weight: 500 !important;
+}
 </style>
 <div class="authincation h-100">
     <div class="container h-100">

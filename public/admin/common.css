@@ -656,3 +656,7 @@ table.dataTable tbody td {
 .select2-container .select2-selection--multiple {
     padding: 5px 15px!important;
 }
+
+.invalid-feedback strong {
+    font-weight: 500 !important;
+}
