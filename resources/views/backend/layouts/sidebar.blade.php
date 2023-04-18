@@ -72,7 +72,7 @@
                     </li>
 
                     <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-							<i class="flaticon-093-waving"></i>
+					<i class="fas fa-star"></i>
 							<span class="nav-text">Rate Card</span>
 						</a>
                         <ul aria-expanded="false">
@@ -83,6 +83,6 @@
 				
 			</div>
 			<div class="copyright">
-					<p><strong class="text-center">NowOnline</strong> © 2023 All Rights Reserved</p>
+					<p><strong class="text-center">NowOnline</strong></p>
 				</div>
         </div>

@@ -321,13 +321,23 @@ table.dataTable tbody td {
 }
 
 .card-body {
-    padding: 1rem 1.5rem;
+    padding: 0.5rem;
 }
 
 .job-icon h2,
 .job-icon .h2 {
     font-size: 1.600rem;
     font-weight: 500;
+    color: #0c2340;
+}
+
+.job-icon p {
+    font-size: 1em !important;
+    font-weight: 500;
+    border-radius: 5px;
+    padding: 0px 10px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 .card {
@@ -576,14 +586,12 @@ table.dataTable tbody td {
     fill: #43b341;
 }
 
-
-/* .separate-row>div {
-    border: 0px !important;
-} */
+.separate-row>div {
+    border-bottom: 0px !important;
+}
 
 .separate-row>div {
-    border-right: 1px solid #eee !important;
-    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
 }
 
 .separate-row>div:nth-child(n+3) {
@@ -594,9 +602,10 @@ table.dataTable tbody td {
     border-bottom: 0px !important
 }
 
-.separate-row>div:last-child {
+
+/* .separate-row>div:last-child {
     border-right: 0px !important
-}
+} */
 
 
 /* .separate-row>div:last-child .job-icon {
@@ -631,12 +640,9 @@ table.dataTable tbody td {
 }
 
 @media only screen and (max-width: 800px) and (min-width: 320px) {
-    .separate-row div.col-xl-3 {
+    .separate-row>div {
+        border-bottom: 1px solid #eee !important;
         border-right: 0px !important;
-        border-bottom: 1px solid #eee !important;
-    }
-    .separate-row:nth-child(2) div.col-xl-3 {
-        border-bottom: 1px solid #eee !important;
     }
 }
 
@@ -659,4 +665,45 @@ table.dataTable tbody td {
 
 .invalid-feedback strong {
     font-weight: 500 !important;
+}
+
+.icon i {
+    font-size: 40px;
+    opacity: 1;
+    padding: 17px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.icon i.text-purple {
+    background: rgb(101 4 173 / 10%);
+    color: rgb(163 92 217);
+}
+
+.job-icon .text-light {
+    color: #0d2542 !important;
+    opacity: .3;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.job-icon .text-purple {
+    background: #F5EEFD;
+    color: #8648df !important;
+}
+
+.job-icon .text-info {
+    background: #EFFAFF;
+    color: #41B6FF!important;
+}
+
+.job-icon .text-warning {
+    background: #FFF4EF;
+    color: #f39361 !important;
+}
+
+.job-icon .text-danger {
+    background: #FFEEF2;
+    color: #f93971 !important;
 }
