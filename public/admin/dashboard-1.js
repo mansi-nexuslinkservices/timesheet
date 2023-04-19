@@ -768,14 +768,14 @@
                 series: [44, 55, 41, 17, 15],
                 chart: {
                     type: 'donut',
-                    height: 310
+                    height: '315px'
                 },
 
                 responsive: [{
                         breakpoint: 480,
                         options: {
                             chart: {
-                                height: 310
+                                height: '400px'
                             },
                             legend: {
                                 position: 'bottom'
@@ -786,7 +786,7 @@
                         breakpoint: 1366,
                         options: {
                             chart: {
-                                height: 310
+                                height: '400px'
                             },
                             legend: {
                                 position: 'bottom'
