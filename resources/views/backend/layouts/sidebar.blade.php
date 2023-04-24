@@ -79,6 +79,11 @@
                             <li class="@if(request()->routeIs('admin.rates*') || request()->routeIs('admin.rates*')) {{'mm-active'}} @endif"><a class="{{ request()->routeIs('admin.rates*') ? 'mm-active' : ''}}" href="{{route('admin.rates.index')}}">Rates</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{route('admin.report.index')}}" class="" aria-expanded="false">
+							<i class="fa fa-file"></i>
+							<span class="nav-text">Report</span>
+						</a>
+					</li>
                 </ul>
 				
 			</div>
