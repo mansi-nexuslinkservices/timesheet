@@ -19,7 +19,6 @@
 
 .form-control.is-invalid {
     border-color: $danger !important;
-    border-right: 0rem !important;
     &:focus {
         box-shadow: none;
     }
@@ -49,19 +48,17 @@
 }
 
 // Show Pass
-.show-pass{
-	cursor:pointer;
-	
-	.fa-eye{
-		display:none;
-	}
-	
-	&.active{
-		.fa-eye-slash{
-			display:none;
-		}
-		.fa-eye{
-			display:inline-block;
-		}
-	}
+.show-pass {
+    cursor: pointer;
+    .fa-eye {
+        display: none;
+    }
+    &.active {
+        .fa-eye-slash {
+            display: none;
+        }
+        .fa-eye {
+            display: inline-block;
+        }
+    }
 }

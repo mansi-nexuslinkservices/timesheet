@@ -44,6 +44,7 @@
 			var table = $('#example5').dataTable({
 				destroy: true,
 	            processing:true,
+				scrollX:true,
 	            responsive: true,
 	            lengthChange: true,
 	            pageLength: 10,

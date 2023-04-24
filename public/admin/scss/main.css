@@ -29097,7 +29097,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
 
 .form-control.is-invalid {
     border-color: #f72b50 !important;
-    border-right: 0rem !important;
 }
 
 .form-control.is-invalid:focus {
@@ -31505,9 +31504,9 @@ table {
 }
 
 .badge-lg {
-    font-size: 0.875rem;
-    padding: 0rem 0.625rem;
-    line-height: 1.875rem;
+    font-size: 0.800rem;
+    padding: 2px 10px;
+    /* line-height: 0.875rem; */
 }
 
 .badge-xl {

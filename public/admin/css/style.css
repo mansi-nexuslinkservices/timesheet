@@ -29801,7 +29801,6 @@ textarea.form-control {
 
 .form-control.is-invalid {
     border-color: #f72b50 !important;
-    border-right: 0rem !important;
 }
 
 .form-control.is-invalid:focus {
@@ -43420,6 +43419,10 @@ html[dir="rtl"] [direction="rtl"][data-sidebar-style="compact"]:not([data-layout
 
 [data-theme-version="dark"] .footer .copyright p {
     color: #fff;
+}
+
+.auth-form img.brand-title {
+    width: 160px;
 }
 
 
