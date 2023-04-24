@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\ProjectManagerController;
 use App\Http\Controllers\Admin\TeamLeaderController;
 use App\Http\Controllers\Admin\ReportController;
+use App\Http\Controllers\Admin\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,10 @@ Route::group(['prefix' => 'admin','as' => 'admin.','middleware' => ['auth']], fu
     /* Project Managers Master */
     Route::resource('project-managers', ProjectManagerController::class);
     Route::get('getProjectManager', [ProjectManagerController::class,'getProjectManager'])->name('getProjectManager');
+
+    /* Client Module */
+    Route::resource('clients', ClientController::class);
+    Route::get('getClient', [ClientController::class,'getClient'])->name('getClient');
 
     /* Teamleader Master */
     Route::resource('team-leaders', TeamLeaderController::class);

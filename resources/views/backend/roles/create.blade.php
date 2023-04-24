@@ -50,6 +50,7 @@
                             'project-types',
                             'timesheets',
                             'rates',
+                            'clients',
                             'role'
                         );
 
