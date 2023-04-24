@@ -57,7 +57,8 @@
 									</div>
 
 									<div class="col-xl-4 mb-4">
-									  	<label  class="form-label font-w600">Password<span class="text-danger scale5 ms-2">*</span></label>
+									  	<label  class="form-label font-w600">Password
+									  		@if(empty($employee))<span class="text-danger scale5 ms-2">*</span>@endif</label>
 										<input type="password" class="form-control userPassword" name="password" placeholder="Enter password" aria-label="password" value="">
 										@error('password')
 											<div class="error">{{ $message }}</div>

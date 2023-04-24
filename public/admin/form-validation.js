@@ -208,7 +208,11 @@ $(document).ready(function(){
                 email: true
             },
             password: {
-                required: true
+                required: {
+                    depends: function (element) {
+                        if(urlSegment === "create") { return true }
+                    },
+                }  
             },
             user_type_id: {
                 required: true
