@@ -21,6 +21,7 @@ class EmployeeTypesController extends Controller
         $this->create_link = route('admin.employee-types.create');
         $this->update_link = route('admin.employee-types.update', 'id');
         $this->list_link = route('admin.employee-types.index');
+        $this->middleware('permission:employee-types', ['only' => ['index','getEmployeeType','create','store','show','edit','update','destroy']]);
     }
     /**
      * Display a listing of the resource.

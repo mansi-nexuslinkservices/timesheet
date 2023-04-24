@@ -29,6 +29,7 @@ class EmployeeController extends Controller
         $this->create_link = route('admin.employees.create');
         $this->update_link = route('admin.employees.update', 'id');
         $this->list_link = route('admin.employees.index');
+        $this->middleware('permission:employees', ['only' => ['index','getEmployee','create','store','show','edit','update','destroy']]);
     }
 
     /**

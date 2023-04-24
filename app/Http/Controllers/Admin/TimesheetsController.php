@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Timesheet;
+use App\Models\UserTimesheet;
 use App\Models\Project;
+use App\Models\Designation;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Auth;
@@ -27,6 +29,7 @@ class TimesheetsController extends Controller
         $this->create_link = route('admin.timesheets.create');
         $this->update_link = route('admin.timesheets.update', 'id');
         $this->list_link = route('admin.timesheets.index');
+        $this->middleware('permission:timesheets', ['only' => ['index','getTimesheet','create','store','show','edit','update','destroy']]);
     }
 
     /**
@@ -50,6 +53,10 @@ class TimesheetsController extends Controller
             $roleName = $role->roles[0]['name'];
         }
 
+        $designation_id = Designation::whereIn('name',['project manager','employee','team leader'])->pluck('id');
+
+        $login_user_role = Auth::user()->roles->pluck('name')->first();
+
         if ($request->ajax()) {
             $columns = array( 
                 0 =>'id', 
@@ -60,6 +67,10 @@ class TimesheetsController extends Controller
             );
             if(isset($roleName) && !empty($roleName == 'admin')){
                 $totalData = Timesheet::whereNull('deleted_at')->count();
+            }elseif(isset($roleName) && !empty($roleName == 'project manager')){
+                $totalData = Timesheet::with(['employee' => function($query) {
+                            $query->whereIn('designation_id', $designation_id);
+                        }])->count();
             }else{
                 $totalData = Timesheet::whereNull('deleted_at')->where('user_id',$user)->count();
             }
@@ -77,6 +88,19 @@ class TimesheetsController extends Controller
 
                 $totalFiltered = Timesheet::whereNull('deleted_at')->count();
 
+            }elseif(isset($roleName) && $roleName == 'project manager'){
+                $query = Timesheet::with(['employee' => function($q) use($designation_id){
+                    $q->whereIn('designation_id', $designation_id);
+                }])->offset($start)
+                    ->limit($limit)
+                    ->orderby('id','desc');
+                
+                $totalFiltered = Timesheet::with(['employee' => function($q) use($designation_id){
+                    $q->whereIn('designation_id', $designation_id);
+                }])->offset($start)
+                    ->limit($limit)
+                    ->orderby('id','desc')
+                    ->count();  
             }else{
                 $query = Timesheet::whereNull('deleted_at')->where('user_id',$user)->offset($start)
                     ->limit($limit)
@@ -108,7 +132,7 @@ class TimesheetsController extends Controller
                     $totalFiltered = Timesheet::whereNull('deleted_at')->where('user_id',$user)->whereYear('submitted_date',$request->year)->count();
                 }
             }
-        
+            
             $records = $query->get();
             $data_arr = array();
 
@@ -116,26 +140,22 @@ class TimesheetsController extends Controller
             if(!empty($records)) {
                 foreach ($records as $record) {
                     $id = $record->id;
-                    $timesheet = Timesheet::with('employee')->find($record->id);
-                    $userName = $timesheet->employee->name;
-                    $val = json_decode($record->task_details,true);
-                    $project_name = [];
-                    foreach($val['project_id'] as $v){
-                        if(!empty($v)){
-                            $project = Project::where('id',$v)->first();
-                            $project_name[] = $project->name;
-                        }
+                    $d = Timesheet::with('user_timesheet')->find($id);
+                    $projectName = array();
+                    foreach($d['user_timesheet'] as $project){
+                        $projectName[] = $project->name;
                     }
-                    $projectName = implode(' , ' ,$project_name);
-                    $hours = $val['total_hours'];
-                    $submitted_date = $record->submitted_date;
-                    
+                    $multiple_project = implode(', ',$projectName);
+                    $timesheet = Timesheet::with('user_timesheet','employee')->find($id);
+                    $userName = $timesheet->employee->name ?? '';
+                    $projectName = $multiple_project ?? '';
+                    $total_hours = $record->hours ?? '';                    
                     $submitted_date = date("m/d/Y", strtotime($record->submitted_date)) ?? '';
                     $data_arr[] = array(
                         "id" => $id,
                         "user_id" => $userName,
                         "project_id" => $projectName,
-                        "hours" => $hours,
+                        "hours" => $total_hours,
                         "submitted_date" => $submitted_date,
                     );
                 }
@@ -174,90 +194,56 @@ class TimesheetsController extends Controller
         return view('backend.timesheet.create',compact('projects','employees','inner_page_module_name','list_page','project_managers'));
     }
 
+    public function createTimesheet(Request $request){
+        $id = $request->id;
+        $row_id = $request->row_id;
+        $projects = Project::whereNull('deleted_at')
+                        ->where('status',1)
+                        ->orderBy('id','desc')
+                        ->get();
+            /*if($id != ''){
+                $d = DB::table('user_timesheets')->where('timesheet_id',$id)->get();
+                $user_timesheet = json_decode(json_encode($d), true);
+                $html = view('backend.timesheet.update-table-row',compact('row_id','user_timesheet','projects'))->render();
+            }else{*/
+                $html = view('backend.timesheet.create-table-row',compact('row_id','projects'))->render();
+            //}
+            return response()->json([
+                'html' => $html,
+            ]);
+        
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         $user_id = auth()->user()->id;
-        $role = auth()->user()->roles->pluck('name');
         $data = array(
-            'project_id' => $request->project_id,
-            'task_details' => $request->task_details,
-            'status' => $request->status,
-            'hours' => $request->hours,
-            'total_hours' => $request->txttotal,
-            'project_manager' => $request->project_manager
+            'user_id' => $user_id,
+            'hours' => $request->txttotal,
         );
         if(isset($request->submitted_date) && !empty($request->submitted_date)){
             $date = date("Y-m-d", strtotime($request->submitted_date));
         }
-        $submitted_date = $date ?? date('Y-m-d');
+        $data['submitted_date'] = $date ?? date('Y-m-d');
 
-        $timesheet = new Timesheet;
-        $timesheet->user_id =  $user_id;
-        $timesheet->submitted_date =  $submitted_date;
-        $timesheet->task_details = json_encode($data);
-        $timesheet->save();
+        $timesheet = Timesheet::create($data);
+        $insertId = $timesheet->id;
 
-        if(isset($request->project_manager) && !empty($request->project_manager)){
-            $auth_user_mail = auth()->user()->email;
-            $project_managers = array_merge($request->project_manager,array($auth_user_mail));
-        }
-
-        if(isset($request->cc_user) && !empty($request->cc_user)){
-            $cc_user_mail = User::whereIn('id',$request->cc_user)->pluck('email')->toArray();
-        }else{
-            $cc_user_mail = [];
-        }
-
-        $userDetails = User::whereIn('email',$request->project_manager)->get();
-        $projectName = Project::whereIn('id',$request->project_id)->pluck('name')->toArray();
-
-        $v = array();
-        foreach($userDetails as $k => $d){
-            $v[$k] = array(
-                'managerName' => $d['name']
+        foreach($request->timesheet as $d){
+            $project = Project::where('id',$d['project_id'])->first();
+            $data1 = array(
+               'timesheet_id' => $insertId,
+               'project_id' => $d['project_id'],
+               'project_type_id' => $project['project_type_id'],
+               'task_details' => $d['task_details'],
+               'task_status' => $d['status'],
+               'task_hours' => $d['hours']
             );
+            $userTimesheet = UserTimesheet::create($data1);
         }
-        $managerName = $v;
-
-        $userDetails = array(
-            'submitted_date' =>  $submitted_date,
-            'employeeName' => auth()->user()->name,
-            'employeeEmail' => auth()->user()->email,
-            'total_hours' => $request->txttotal,
-        );
-        
-        $array = array();
-        foreach($projectName as $k => $name){
-            $array[$k] = array(
-                'projectName' => $name,
-            );
-        }
-        $array1 = $array;
-        foreach($request->task_details as $k => $d){
-            $array[$k] = array(
-                'taskDetails' => $d,
-            );
-        }
-        $array2 = $array;
-        foreach($request->status as $k => $s){
-            $array[$k] = array(
-                'status' => $s,
-            );
-        }
-        $array3 = $array;
-        foreach($request->hours as $k => $h){
-            $array[$k] = array(
-                'hour' => $h,
-            );
-        }
-        $array4 = $array;
-
-        $mainArray = array_replace_recursive($array1,$array2,$array3,$array4,$managerName);
-
-        Mail::to($project_managers)->cc($cc_user_mail)->send(new UserEmail($mainArray,$userDetails));
 
         return redirect()->route('admin.timesheets.index')->with('success', 'Timesheet created successfully!');
     }
@@ -285,43 +271,10 @@ class TimesheetsController extends Controller
                             ->orderBy('id','desc')
                             ->get();
         $timesheet = Timesheet::find($id);
-        $val[] = json_decode($timesheet['task_details'],true);
-
-        $offerArray = array();
-        $mainArray = array();
-        foreach($val as $v){
-            $offerArray1 = array();
-            foreach($v['hours'] as $k => $h){
-                $offerArray[$k] = array(
-                    'hours' => $h,
-                );
-            }
-            $offerArray1 = $offerArray;
-            
-            foreach($v['project_id'] as $k => $p){
-                $offerArray[$k] = array(
-                    'project_id' => $p,
-                );
-            }
-            $offerArray2 = $offerArray;
-
-            foreach($v['task_details'] as $k => $t){
-                $offerArray[$k] = array(
-                    'task_details' => $t,
-                );
-            }
-            $offerArray3 = $offerArray;
-
-            foreach($v['status'] as $k => $s){
-                $offerArray[$k] = array(
-                    'status' => $s,
-                );
-            }
-            $offerArray4 = $offerArray;
-    
-            $mainArray = array_replace_recursive($offerArray1,$offerArray2,$offerArray3,$offerArray4);
-        }
+        $d = DB::table('user_timesheets')->where('timesheet_id',$id)->get();
+        $user_timesheet = json_decode(json_encode($d), true);
         $user_id = auth()->user()->id;
+
         $d = DB::table('user_project_managers')->where('user_id',$timesheet['user_id'])->pluck('project_manager_id');
         $user_project_managers = json_decode(json_encode($d), true);
 
@@ -329,92 +282,40 @@ class TimesheetsController extends Controller
         $project_managers = json_decode(json_encode($m), true);
 
         $employees = User::with('roles')->whereNotIn('id',[$user_id])->whereNotIn('name',['admin'])->get();
-        return view('backend.timesheet.create', compact('val','project_managers','mainArray','employees','projects','timesheet','list_page','inner_page_module_name'));
+        return view('backend.timesheet.create', compact('project_managers','user_timesheet','employees','projects','timesheet','list_page','inner_page_module_name'));
     }
 
-    
-     
     public function update(Request $request, string $id)
     {
         $user_id = auth()->user()->id;
-        $role = auth()->user()->roles->pluck('name');
-
         $data = array(
-            'project_id' => $request->project_id,
-            'task_details' => $request->task_details,
-            'status' => $request->status,
-            'hours' => $request->hours,
-            'total_hours' => $request->txttotal,
+            'user_id' => $user_id,
+            'hours' => $request->txttotal,
         );
-
         if(isset($request->submitted_date) && !empty($request->submitted_date)){
             $date = date("Y-m-d", strtotime($request->submitted_date));
         }
-        $submitted_date = $date ?? date('Y-m-d');
+        $data['submitted_date'] = $date ?? date('Y-m-d');
 
         $timesheet = Timesheet::find($id);
-        $timesheet->user_id =  $user_id;
-        $timesheet->submitted_date =  $submitted_date;
-        $timesheet->task_details = json_encode($data);
-        $timesheet->save();
+        $timesheet->update($data);
 
-        if(isset($request->project_manager) && !empty($request->project_manager)){
-            $auth_user_mail = auth()->user()->email;
-            $project_managers = array_merge($request->project_manager,array($auth_user_mail));
-        }
-
-        if(isset($request->cc_user) && !empty($request->cc_user)){
-            $cc_user_mail = User::whereIn('id',$request->cc_user)->pluck('email')->toArray();
-        }else{
-            $cc_user_mail = [];
-        }
-
-        $userDetails = User::whereIn('email',$request->project_manager)->get();
-        $projectName = Project::whereIn('id',$request->project_id)->pluck('name')->toArray();
-
-        foreach($userDetails as $k => $d){
-            $managerName[$k] = array(
-                'managerName' => $d['name']
+        $delete = UserTimesheet::where('timesheet_id',$id)->delete();
+        foreach($request->timesheet as $d){
+            $data1 = array(
+               'timesheet_id' => $id,
+               'project_id' => $d['project_id'],
+               'task_details' => $d['task_details'],
+               'task_status' => $d['status'],
+               'task_hours' => $d['hours']
             );
+            if($d['project_id'] != ''){
+                $project = Project::where('id',$d['project_id'])->first();
+                $data1['project_type_id'] = $project['project_type_id'];
+            }
+            $userTimesheet = UserTimesheet::create($data1);
         }
-        $userDetails = array(
-            'submitted_date' =>  $submitted_date,
-            'employeeName' => auth()->user()->name,
-            'employeeEmail' => auth()->user()->email,
-            'employeePhone' => auth()->user()->phone,
-            'total_hours' => $request->txttotal,
-        );
-        
-        $array = array();
-        foreach($projectName as $k => $name){
-            $array[$k] = array(
-                'projectName' => $name,
-            );
-        }
-        $array1 = $array;
-        foreach($request->task_details as $k => $d){
-            $array[$k] = array(
-                'taskDetails' => $d,
-            );
-        }
-        $array2 = $array;
-        foreach($request->status as $k => $s){
-            $array[$k] = array(
-                'status' => $s,
-            );
-        }
-        $array3 = $array;
-        foreach($request->hours as $k => $h){
-            $array[$k] = array(
-                'hour' => $h,
-            );
-        }
-        $array4 = $array;
 
-        $mainArray = array_replace_recursive($array1,$array2,$array3,$array4,$managerName);
-
-        Mail::to($project_managers)->cc($cc_user_mail)->send(new UserEmail($mainArray,$userDetails));
-        
         return redirect()->route('admin.timesheets.index')->with('success', 'Timesheet updated successfully!');
     }
 

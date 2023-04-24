@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Project;
 use App\Models\User;
+use App\Models\UserTimesheet;
 
 class Timesheet extends Model
 {
@@ -15,6 +16,10 @@ class Timesheet extends Model
     public $table = 'timesheets';
     
     protected $guarded = [];
+
+    public function user_timesheet() {
+        return $this->belongsToMany(Project::class, 'user_timesheets', 'timesheet_id', 'project_id')->withTimestamps();
+    }
 
     public function project() {
         return $this->hasOne(Project::class, 'id', 'project_id');

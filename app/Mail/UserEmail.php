@@ -13,15 +13,16 @@ class UserEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $mainArray, $userDetails;
+    public $mainArray, $userDetails, $managerDetails;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($mainArray, $userDetails)
+    public function __construct($mainArray, $userDetails,$managerDetails)
     {
          $this->mainArray = $mainArray;
          $this->userDetails = $userDetails;
+         $this->managerDetails = $managerDetails;
     }
 
     /**
@@ -30,7 +31,7 @@ class UserEmail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Timesheet 10/04/2023 from Pinal Vora',
+            subject: 'Timesheet  '.date('d-m-Y',strtotime($this->userDetails['submitted_date'])).'  from  '.$this->userDetails['employeeName'].' ' ?? ''.$this->userDetails['employeeLastName'] ?? '',
         );
     }
 

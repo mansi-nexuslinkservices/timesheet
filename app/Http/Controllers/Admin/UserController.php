@@ -22,6 +22,7 @@ class UserController extends Controller
         $this->create_link = route('admin.users.create');
         $this->update_link = route('admin.users.update', 'id');
         $this->list_link = route('admin.users.index');
+        $this->middleware('permission:admin-users', ['only' => ['index','getUser','create','store','show','edit','update','destroy']]);
     }
 
     /**

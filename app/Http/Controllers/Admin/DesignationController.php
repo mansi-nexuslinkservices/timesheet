@@ -21,6 +21,7 @@ class DesignationController extends Controller
         $this->create_link = route('admin.designation.create');
         $this->update_link = route('admin.designation.update', 'id');
         $this->list_link = route('admin.designation.index');
+        $this->middleware('permission:designations', ['only' => ['index','getDesignation','create','store','show','edit','update','destroy']]);
     }
     /**
      * Display a listing of the resource.

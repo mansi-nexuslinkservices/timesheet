@@ -21,6 +21,7 @@ class RateCardController extends Controller
         $this->create_link = route('admin.rates.create');
         $this->update_link = route('admin.rates.update', 'id');
         $this->list_link = route('admin.rates.index');
+        $this->middleware('permission:rates', ['only' => ['index','getRates','create','store','edit','update','destroy']]);
     }
 
     /**

@@ -27,6 +27,11 @@ class Project extends Model
     public function project_user() {
         return $this->hasOne(ProjectUser::class, 'project_id', 'user_id');
     }
+
+    public function employeeTimesheet()
+    {   
+        return $this->hasMany(Timesheet::class,'user_timesheets')->withTimestamps();
+    }
     /*public function employee()
     {   
         return $this->hasMany(User::class,'user_projects');

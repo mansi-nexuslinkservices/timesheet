@@ -20,6 +20,7 @@ class ProjectTypeController extends Controller
         $this->create_link = route('admin.project-type.create');
         $this->update_link = route('admin.project-type.update', 'id');
         $this->list_link = route('admin.project-type.index');
+        $this->middleware('permission:project-types', ['only' => ['index','getProjectType','create','store','show','edit','update','destroy']]);
     }
     /**
      * Display a listing of the resource.

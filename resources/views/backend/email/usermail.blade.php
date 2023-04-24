@@ -11,7 +11,7 @@
 </style>
 <body>
     <h4>Time Sheet Detail</h4>
-    <p><b>Dear Vijay Dabhi,</b></p>
+    <p><b>Dear {{$managerDetails['name'].' ' ?? ''}}{{$managerDetails['surname'] ?? ''}},</b></p>
     <p>Please check below daily report of 
     {{date('d-m-Y',strtotime($userDetails['submitted_date'])) }}.</p>
     <p><b>Employee Name:  </b>{{$userDetails['employeeName'] ?? ''}}</p>
@@ -43,7 +43,7 @@
             </tr> 
         </tbody>
     </table>
-    <p>{{$userDetails['employeeName'] ?? '-'}}</p>
+    <p>{{$userDetails['employeeName'].' ' ?? '-'}}  |  {{$userDetails['designation'] ?? '-'}}</p>
     <p>Mobile: {{$userDetails['employeePhone'] ?? '-'}}</p>
     <p>Skype: {{$userDetails['employeeEmail'] ?? '-'}}</p>
 </body>

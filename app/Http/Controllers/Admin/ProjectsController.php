@@ -23,6 +23,7 @@ class ProjectsController extends Controller
         $this->create_link = route('admin.projects.create');
         $this->update_link = route('admin.projects.update', 'id');
         $this->list_link = route('admin.projects.index');
+        $this->middleware('permission:projects', ['only' => ['index','getProject','create','store','show','edit','update','destroy']]);
     }
 
     /**
