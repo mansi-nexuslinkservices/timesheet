@@ -62,7 +62,7 @@
                     @foreach ($all_modules as $value1)
                         <div class="col-12 col-md-3 mb-3">
                         	<div class="form-check custom-checkbox mb-3">
-								<input type="checkbox" class="form-check-input" id="customCheckBox{{ $value1 }}" name="permission[]"  value="@if(!empty($rolePermissions)){{ $db_permission_final[$value1] }}" @if (in_array($db_permission_final[$value1], $rolePermissions))  checked="true" @endif @endif>
+								<input type="checkbox" class="form-check-input" id="customCheckBox{{ $value1 }}" name="permission[]"  value="{{ $db_permission_final[$value1] }}" @if(!empty($rolePermissions))@if(in_array($db_permission_final[$value1], $rolePermissions))  checked="true" @endif @endif>
 								<label class="form-check-label font-weight-bold" for="customCheckBox{{$value1 }}">{{$value1}}</label>
 							</div>
  						</div>
