@@ -49,7 +49,8 @@
 
 							<li class="{{ request()->routeIs('admin.employees*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.employees*') ? 'mm-active' : ''}}" href="{{route('admin.employees.index')}}">Employees</a></li>
 							<li class="{{ request()->routeIs('admin.employee-types*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.employee-types*') ? 'mm-active' : ''}}" href="{{route('admin.employee-types.index')}}">Employee Types</a></li>
-							<li class="{{ request()->routeIs('admin.designation*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.designation*') ? 'mm-active' : ''}}" href="{{route('admin.designation.index')}}">Designations</a></li>	
+							<li class="{{ request()->routeIs('admin.designation*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.designation*') ? 'mm-active' : ''}}" href="{{route('admin.designation.index')}}">Designations</a></li>
+							<li class="{{ request()->routeIs('admin.roles*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.roles*') ? 'mm-active' : ''}}" href="{{route('admin.roles.index')}}">Roles</a></li>	
 						</ul>
 					</li>
                   
