@@ -29347,9 +29347,6 @@ Fixing Order => Base + Typography >> General Layout + Grid >> Page Layout + Comp
     padding-left: 10px;
 }
 
-textarea.form-control {
-    height: auto;
-}
 
 :root {
     --primary: #0c2340;

@@ -41,7 +41,7 @@
 								@method('PATCH')
 								<input type="hidden" class="timesheetId" value="{{$timesheet->id}}">
 						@endif
-							<div class="card-body">
+							<div class="card-body table-responsive">
 								
 								<input type="hidden" name="submitted_date" class="submitDate" value="">
 								<table class="timesheet-tbl mb-4" id="row">
@@ -51,7 +51,6 @@
 										<th class="text-center" width="20%">Task Status</th>
 										<th class="hours" width="17%" colspan="2">Task Hours</th>
 									</thead>
-									
 									<tbody>
 										@if(!empty($user_timesheet))
 											@php $lastKey = array_key_last($user_timesheet) @endphp
@@ -60,32 +59,35 @@
 												@include('backend.timesheet.update-table-row')
 											@endforeach
 										@endif
+										
 									</tbody>
+									<tfoot>
+										<tr>
+											<td class="text-end">
+												<label class="form-label font-w600 mb-0">Email to : </label>
+												@if(isset($project_managers) && count($project_managers) > 0)
+													@foreach($project_managers as $manager)
+														<input type="text" class="txtemail" name="project_manager[]" value="{{$manager['email']}}">
+													@endforeach
+												@endif
+											</td>
+											<td class="text-center">
+												<select class="select2-with-label-multiple js-states d-block"  id="id_label_multiple" multiple="multiple" name="cc_user[]">
+													<option value="">Select Users</option>
+													@foreach($employees as $employee)
+														<option value="{{$employee->id}}">{{$employee->name}}</option>
+													@endforeach
+												</select>
+											</td>
+											<td class="text-end">
+												<label class="form-label font-w600 txthours mb-0">Total Hours:</label>
+											</td>
+											<td class="text-start">
+												<input type="text" class="txttotal px-3" value="{{$timesheet['hours'] ?? '0'}}" name="txttotal">
+											</td>
+										</tr>
+									</tfoot>
 								</table>
-								<div class="row">
-									<div class="col-sm-3 mb-4">
-										<label class="form-label font-w600">Email to : </label>
-											@if(isset($project_managers) && count($project_managers) > 0)
-												@foreach($project_managers as $manager)
-													<input type="text" class="txtemail" name="project_manager[]" value="{{$manager['email']}}">
-												@endforeach
-											@endif
-									</div>
-									<div class="col-sm-4 mb-4">
-										<select class="select2-with-label-multiple js-states d-block"  id="id_label_multiple" multiple="multiple" name="cc_user[]">
-											<option value="">Select Users</option>
-											@foreach($employees as $employee)
-												<option value="{{$employee->id}}">{{$employee->name}}</option>
-											@endforeach
-										</select>
-									</div>
-									<div class="col-sm-2 mb-4">
-										<label class="form-label font-w600 txthours">Total Hours</label>
-									</div>
-									<div class="col-sm-2 mb-4">
-										<input type="text" class="txttotal" value="{{$timesheet['hours'] ?? '0'}}" name="txttotal">
-									</div>
-								</div>
 								<div class="card-footer text-end">
 									<div>
 										<input type="submit" value="Submit" class="btn btn-primary">

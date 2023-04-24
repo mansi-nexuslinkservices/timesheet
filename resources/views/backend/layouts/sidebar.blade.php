@@ -40,7 +40,7 @@
 						</a>
 					</li>
                     <li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
-						<i class="flaticon-013-checkmark"></i><span class="nav-text">User Management</span>
+						<i class="flaticon-013-checkmark"></i><span class="nav-text"> User Management</span>
 						</a>
                         <ul aria-expanded="false">
                         	@if(isset($user) && !empty($user) && $user->super_admin == 1)
