@@ -29,7 +29,7 @@
                         <!-- Nav tabs -->
                         <div class="default-tab">
                             <div class="row" style="border-bottom: 1px solid #dee2e6;">
-                                <div class="col-lg-8 col-md-8">
+                                <div class="col-lg-auto col-md-auto">
                                     <ul class="nav nav-tabs" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <a class="nav-link active" data-bs-toggle="tab" href="#Tab_6"
@@ -64,11 +64,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-lg-2 col-md-2 text-end">
+                                <div class="col-lg-auto col-md-auto text-end ms-auto">
                                     <h5><i class="fa fa-clock me-2 text-secondary"></i> Tracked Hours:<span
                                             class="text-secondary fs-20 ms-2">321:28</span> </h5>
                                 </div>
-                                <div class="col-lg-2 col-md-2 text-end">
+                                <div class="col-lg-auto col-md-auto text-end ms-auto">
                                     <h5><i class="fa fa-wallet me-2 text-secondary"></i> Total Amount:<span
                                             class="text-secondary fs-20 ms-2"> &euro; 345</span> </h5>
                                 </div>

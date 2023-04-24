@@ -377,7 +377,9 @@ table.dataTable thead th {
 table.dataTable tbody td {
     padding: 5px 15px !important;
 }
-
+.card-table th:first-child{
+    padding: 15px !important;
+}
 .action-buttons .btn {
     height: 30px;
     width: 30px;
@@ -504,7 +506,7 @@ table.dataTable tbody td {
 }
 
 .btn {
-    padding: 7px 15px;
+    padding: 5px 12px;
 }
 
 .content-body {
@@ -720,82 +722,14 @@ table.dataTable tbody td {
 
 /* -----------------Timesheet Page---------------- */
 
-.progress {
-    width: 100px;
-    height: 100px;
-    background: none;
-    position: relative;
-}
 
-.progress::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    border: 6px solid #eee;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
 
-.progress>span {
-    width: 50%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    z-index: 1;
-}
-
-.progress .progress-left {
-    left: 0;
-}
-
-.progress .progress-bar {
-    width: 100%;
-    height: 100%;
-    background: none;
-    border-width: 6px;
-    border-style: solid;
-    position: absolute;
-    top: 0;
-    border-radius: 0px;
-}
-
-.progress .progress-left .progress-bar {
-    left: 100%;
-    border-top-right-radius: 80px;
-    border-bottom-right-radius: 80px;
-    border-left: 0;
-    -webkit-transform-origin: center left;
-    transform-origin: center left;
-}
-
-.progress .progress-right {
-    right: 0;
-}
-
-.progress .progress-right .progress-bar {
-    left: -100%;
-    border-top-left-radius: 80px;
-    border-bottom-left-radius: 80px;
-    border-right: 0;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-}
-
-.progress .progress-value {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.default-tab .nav-link {
+.timesheet-container .default-tab .nav-link {
     padding: 10px 20px;
     border-radius: 0.625rem 0.625rem 0 0;
 }
 
-.timesheet-container .border-end input {
+.timesheet-container .timesheet-container .border-end input {
     border: none;
     width: max-content;
     height: auto;
@@ -805,66 +739,68 @@ table.dataTable tbody td {
     max-width: 60%;
 }
 
-.timesheet-container .input-group {
+.timesheet-container .timesheet-container .input-group {
     width: max-content;
     margin: auto;
     text-align: center;
 }
-.input-daterange-datepicker{
+.timesheet-container .input-daterange-datepicker{
     font-size: 17px;
     color: #335A72;
 }
-.daterangepicker .ranges li.active {
+.timesheet-container .daterangepicker .ranges li.active {
     background-color: #0085ca;
     color: #fff;
 }
-.daterangepicker{
+.timesheet-container .daterangepicker{
     font-family: 'univiaPro', sans-serif !important;
 }
-.daterangepicker th.month {
+.timesheet-container .daterangepicker th.month {
     line-height: 16px!important;
 }
-.daterangepicker th.month,.daterangepicker .calendar-table th, .daterangepicker .calendar-table td{
+.timesheet-container .daterangepicker th.month,.timesheet-container .daterangepicker .calendar-table th, 
+.timesheet-container .daterangepicker .calendar-table td{
     width: 45px!important;
     height: 30px !important;
 }
-.daterangepicker .drp-calendar{
+.timesheet-container .daterangepicker .drp-calendar{
     max-width: 100% !important;
 }
-.daterangepicker th.month:hover{
+.timesheet-container .daterangepicker th.month:hover{
     background-color: transparent;
     color: #000;
 }
-.daterangepicker td.active, .daterangepicker td.active:hover {
+.timesheet-container .daterangepicker td.active, .timesheet-container .daterangepicker td.active:hover {
     background-color: #0085ca!important;
     border-color: transparent;
     color: #fff!important;
 }
-.daterangepicker td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date {
+.timesheet-container .daterangepicker td.off, .timesheet-container .daterangepicker td.off.in-range, 
+.timesheet-container .daterangepicker td.off.start-date, .timesheet-container .daterangepicker td.off.end-date {
     background-color: #fff!important;
     border-color: transparent;
     color: #999!important;
 }
-.btn{
+.timesheet-container .btn{
     transition: all .74s;
     font-size: 14px;
 }
-.btn-outline-success{
+.timesheet-container .btn-outline-success{
     color: #48b545;
     border-color: #48b545;
     
 }
-.btn-outline-success:hover {
+.timesheet-container .btn-outline-success:hover {
     color: #fff;
     background-color: #48b545;
     border-color: #48b545;
 }
-.btn-outline-danger:hover {
+.timesheet-container .btn-outline-danger:hover {
     color: #fff;
     background-color: #f72b50;
     border-color: #f72b50;
 }
-.proj_span {
+.timesheet-container .proj_span {
     color: #fff;
     width: 40px;
     height: 40px;
@@ -875,49 +811,49 @@ table.dataTable tbody td {
     object-fit: cover;
 }
 
-.proj_primary{
+.timesheet-container .proj_primary{
     background-color: #0085ca;
     
 }
-.proj_success{
+.timesheet-container .proj_success{
     background-color: #48b545;
     
 }
-.proj_danger{
+.timesheet-container .proj_danger{
     background-color: #f72b50;
 }
-.dataTablesCard{
+.timesheet-container .dataTablesCard{
     vertical-align: middle;
 }
-table.dataTable thead th, table.dataTable thead td{
+.timesheet-container table.dataTable thead th,.timesheet-container  table.dataTable thead td{
     border-bottom: 0px;
 }
 
-.datatable-main{
+.timesheet-container .datatable-main{
     border: 1px solid #ebeef6;
     border-radius: 40px;
     padding: 0px;
 }
 
-.dataTable tbody{
+.timesheet-container .dataTable tbody{
     padding: 0 10px;
 }
-.dataTable.table:not(.table-bordered) thead th:first-child{
+.timesheet-container .dataTable.table:not(.table-bordered) thead th:first-child{
     border-top-left-radius: 40px;
 }
-.dataTable.table:not(.table-bordered) thead th:last-child{
+.timesheet-container .dataTable.table:not(.table-bordered) thead th:last-child{
 
     border-top-right-radius: 40px;
 }
-.dataTable thead{
+.timesheet-container .dataTable thead{
     background: #e9f1f5;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
 }
-.dataTablesCard{
+.timesheet-container .dataTablesCard{
     background-color: transparent;
 }
-.table thead tr th:last-child,.table tbody tr td:last-child{
+.timesheet-container .table thead tr th:last-child,.timesheet-container .table tbody tr td:last-child{
     text-align: start;
 }
 /* .table.dataTable.customer-table  tr.even td{
@@ -926,20 +862,22 @@ table.dataTable thead th, table.dataTable thead td{
 .table.dataTable.customer-table  tr:last-child.even td{
     border-bottom: 0px;
 } */
-table.dataTable thead .sorting_asc{
+.timesheet-container table.dataTable thead .sorting_asc{
     background:none;
 }
-.select2-container .select2-selection--multiple{
+.timesheet-container .select2-container .select2-selection--multiple{
     border: 0.0625rem solid #e6e6e6;
 }
 
-table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td{
+.timesheet-container table.dataTable.row-border tbody th, .timesheet-container table.dataTable.row-border tbody td, 
+.timesheet-container table.dataTable.display tbody th, 
+.timesheet-container table.dataTable.display tbody td{
     border-top: 0px;
 }
 .timesheet-container .nav-tabs {
     border-bottom: none;
 }
-.client-diff{
+.timesheet-container .client-diff{
     border-top: 1px solid #e6e6e6;
 }
 
