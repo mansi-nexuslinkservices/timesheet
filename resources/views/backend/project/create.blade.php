@@ -27,14 +27,14 @@
 							
 							<div class="card-body">
 								<div class="row">
-									<div class="col-xl-6 mb-4">
+									<div class="col-xl-4 mb-4">
 									  <label  class="form-label font-w600">Name<span class="text-danger scale5 ms-2">*</span></label>
 										<input type="text" class="form-control projectName" name="name" placeholder="Enter name" aria-label="name" value="{{old('name', $project['name'] ?? '')}}">
 										@error('name')
 											<div class="error">{{ $message }}</div>
 										@enderror
 									</div>
-									<div class="col-xl-6 mb-4">
+									<div class="col-xl-4 mb-4">
 									  	<label  class="form-label font-w600">Select Project Type<span class="text-danger scale5 ms-2">*</span></label>
 										<select class="default-select form-control" name="project_type_id">
 											<option value="">Select Project Type</option>
@@ -43,6 +43,16 @@
 											@endforeach
 										</select>
 										<div class="projectTypeId"></div>
+									</div>
+									<div class="col-xl-4 mb-4">
+									  	<label  class="form-label font-w600">Select Client<span class="text-danger scale5 ms-2">*</span></label>
+										<select class="default-select form-control" name="client_id">
+											<option value="">Select Client</option>
+											@foreach($clients as $client)
+												<option value="{{$client->id}}" @if(isset($project->client_id) && $project->client_id == $client->id) {{'selected'}} @endif>{{$client->name}}</option>
+											@endforeach
+										</select>
+										<div class="clientId"></div>
 									</div>
 								</div>
 

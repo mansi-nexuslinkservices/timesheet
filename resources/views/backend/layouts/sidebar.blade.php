@@ -53,7 +53,11 @@
 							<li class="{{ request()->routeIs('admin.roles*') ? 'mm-active' : ''}}"><a class="{{ request()->routeIs('admin.roles*') ? 'mm-active' : ''}}" href="{{route('admin.roles.index')}}">Roles</a></li>	
 						</ul>
 					</li>
-                  
+                  	<li><a href="{{route('admin.clients.index')}}" class="" aria-expanded="false">
+							<i class="fa fa-user"></i>
+							<span class="nav-text">Clients</span>
+						</a>
+					</li>
 					<li><a class="has-arrow " href="javascript:void()" aria-expanded="false">
 							<i class="flaticon-093-waving"></i>
 							<span class="nav-text">Projects</span>

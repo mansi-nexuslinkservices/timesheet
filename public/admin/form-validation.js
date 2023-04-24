@@ -164,6 +164,9 @@ $(document).ready(function(){
             project_type_id: {
                 required: true
             },
+            client_id: {
+                required: true
+            },
             'user_id[]': {
                 required: true
             },
@@ -174,6 +177,9 @@ $(document).ready(function(){
             },
             project_type_id: {
                 required: "Please select project type",
+            },
+            client_id: {
+                required: "Please select client",
             },
             'user_id[]': {
                 required: "Please select user",
@@ -189,6 +195,8 @@ $(document).ready(function(){
                 error.insertAfter('.projectName');
             }else if(element.attr("name") == 'project_type_id') {
                 error.insertAfter('.projectTypeId');
+            }else if(element.attr("name") == 'client_id') {
+                error.insertAfter('.clientId');
             }else if(element.attr("name") == 'user_id[]') {
                 error.insertAfter('.userId');
             }else{
@@ -399,6 +407,35 @@ $(document).ready(function(){
             } else {
                 error.insertAfter(element);
             }
+        },
+    });
+
+    $('#client').validate({
+        ignore: [],
+        rules: {
+            name: {
+                required: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+        },
+        messages: {
+            name: {
+                required: "Please enter name",
+            },
+            email: {
+                required: "Please enter email",
+            },
+        },
+        onfocusout: function (element) {
+            jQuery(element).valid()
+        },
+        errorElement: "div",
+        errorClass: "validateError",
+        errorPlacement: function (error, element) {
+            error.insertAfter(element);
         },
     });
 });

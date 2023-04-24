@@ -8,6 +8,7 @@ use App\Models\Project;
 use App\Models\ProjectType;
 use App\Models\User;
 use App\Models\ProjectUser;
+use App\Models\Client;
 
 class ProjectsController extends Controller
 {
@@ -80,11 +81,12 @@ class ProjectsController extends Controller
         $list_page = trans('admin/common.add');
         $inner_page_module_name = $this->inner_page_module_name;
         $projectTypes = ProjectType::whereNull('deleted_at')->orderby('id','desc')->get();
+        $clients = Client::whereNull('deleted_at')->where('status',1)->orderby('id','desc')->get();
         $employees = User::with('roles')->whereHas('roles', function($q) {
                 $q->whereIn('name', ['project manager','team leader','employee']);
             })->get();
         /*$employees = User::with('roles')->whereNotIn('name',['admin'])->get();*/
-        return view('backend.project.create',compact('employees','projectTypes','list_page','inner_page_module_name'));
+        return view('backend.project.create',compact('clients','employees','projectTypes','list_page','inner_page_module_name'));
     }
 
     /**
@@ -95,12 +97,14 @@ class ProjectsController extends Controller
         $request->validate([
             'name' => 'required',
             'project_type_id' => 'required',
+            'client_id' => 'required',
         ]);
 
         $data = array(
             'name' => $request['name'],
             'description' => $request['description'],
             'project_type_id' => $request['project_type_id'],
+            'client_id' => $request['client_id'],
             'status' => $request['status'],
         ); 
 
@@ -128,6 +132,7 @@ class ProjectsController extends Controller
         $inner_page_module_name = $this->inner_page_module_name;
         $project = Project::find($id);
         $projectUsers = ProjectUser::where('project_id',$id)->pluck('user_id');
+        $clients = Client::whereNull('deleted_at')->where('status',1)->orderby('id','desc')->get();
         $users = User::whereIn('id', $projectUsers)->get();
         foreach($users as $user){
             $u[] = $user['name'];
@@ -145,6 +150,7 @@ class ProjectsController extends Controller
         $inner_page_module_name = $this->inner_page_module_name;
         $project = Project::find($id);
         $projectTypes = ProjectType::whereNull('deleted_at')->orderby('id','desc')->get();
+        $clients = Client::whereNull('deleted_at')->where('status',1)->orderby('id','desc')->get();
         /*$employees = User::with('roles')->whereNotIn('name',['admin'])->get();*/
         $employees = User::with('roles')->whereHas('roles', function($q) {
                 $q->whereIn('name', ['project manager','team leader','employee']);
@@ -154,7 +160,7 @@ class ProjectsController extends Controller
         foreach($projectUsers as $user){
             $multiple_users[] = $user['user_id'];
         }
-        return view('backend.project.create',compact('multiple_users','employees','projectUsers','project','projectTypes','list_page','inner_page_module_name'));
+        return view('backend.project.create',compact('clients','multiple_users','employees','projectUsers','project','projectTypes','list_page','inner_page_module_name'));
     }
 
     /**
@@ -165,12 +171,14 @@ class ProjectsController extends Controller
         $request->validate([
             'name' => 'required',
             'project_type_id' => 'required',
+            'client_id' => 'required',
         ]);
 
         $data = array(
             'name' => $request['name'],
             'description' => $request['description'],
             'project_type_id' => $request['project_type_id'],
+            'client_id' => $request['client_id'],
             'status' => $request['status'],
         ); 
 
