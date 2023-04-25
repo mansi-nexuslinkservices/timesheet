@@ -921,3 +921,6 @@ table.dataTable tbody td {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+  /* .dataTables_scrollBody .dataTable thead{
+    display: none;
+  } */

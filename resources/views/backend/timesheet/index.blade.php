@@ -86,8 +86,12 @@
 				destroy: true,
 	            processing:true,
 	            serverSide: true,
-				scrollX:true,
 	            responsive: true,
+				"initComplete": function(settings, json) {
+					$("#example5").wrap(
+						"<div style='overflow-x:auto; width:100%;position:relative;' class='datatable-main'></div>"
+					);
+				},
 	            lengthChange: true,
 	            pageLength: 10,
 	            columnDefs: [

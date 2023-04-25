@@ -50,9 +50,13 @@
 				destroy: true,
 	            processing:true,
 	            responsive: true,
-				scrollX:true,
 	            lengthChange: true,
 	            pageLength: 10,
+				"initComplete": function(settings, json) {
+					$("#example5").wrap(
+						"<div style='overflow-x:auto; width:100%;position:relative;' class='datatable-main'></div>"
+					);
+				},
 	            columnDefs: [
 	            { orderable: false, targets: -1}
 	            ],

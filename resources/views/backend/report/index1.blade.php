@@ -668,8 +668,8 @@ $(document).ready(function() {
         processing: true,
         responsive: true,
         searching: true,
-        info: true,
-        paging: true,
+        info: false,
+        paging: false,
         ordering: false,
         "initComplete": function(settings, json) {
             $("#example5").wrap(
@@ -682,8 +682,8 @@ $(document).ready(function() {
         processing: true,
         responsive: true,
         searching: true,
-        info: true,
-        paging: true,
+        info: false,
+        paging: false,
         ordering: false,
         "initComplete": function(settings, json) {
             $("#example6").wrap(
@@ -696,8 +696,8 @@ $(document).ready(function() {
         processing: true,
         responsive: true,
         searching: true,
-        info: true,
-        paging: true,
+        info: false,
+        paging: false,
         ordering: false,
         "initComplete": function(settings, json) {
             $("#example7").wrap(
@@ -710,8 +710,8 @@ $(document).ready(function() {
         processing: true,
         responsive: true,
         searching: true,
-        info: true,
-        paging: true,
+        info: false,
+        paging: false,
         ordering: false,
         "initComplete": function(settings, json) {
             $("#example8").wrap(
@@ -724,8 +724,8 @@ $(document).ready(function() {
         processing: true,
         responsive: true,
         searching: true,
-        info: true,
-        paging: true,
+        info: false,
+        paging: false,
         ordering: false,
         "initComplete": function(settings, json) {
             $("#example9").wrap(

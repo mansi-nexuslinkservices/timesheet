@@ -142,6 +142,11 @@ let dataSet = [
         select: false,
         info: true,
         lengthChange: false,
+        "initComplete": function(settings, json) {
+            $("#example5").wrap(
+                "<div style='overflow-x:auto; width:100%;position:relative;' class='datatable-main'></div>"
+            );
+        },
         scrollX: true,
         language: {
             paginate: {
