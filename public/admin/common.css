@@ -921,6 +921,16 @@ table.dataTable tbody td {
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-  /* .dataTables_scrollBody .dataTable thead{
-    display: none;
-  } */
+  .daterangepicker{
+     font-family: 'univiaPro', sans-serif !important; 
+  }
+  .daterangepicker .calendar-table th, .daterangepicker .calendar-table td{
+    line-height: 7px !important;
+  }
+  .daterangepicker th.month:hover{
+    background: transparent;
+    color: #000;
+  }
+  .daterangepicker .calendar-table th, .daterangepicker .calendar-table td{
+    width: 42px !important;
+  }
